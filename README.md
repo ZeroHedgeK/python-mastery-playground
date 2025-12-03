@@ -1,128 +1,56 @@
-# Python Decorators Learning Project
+# Python Mastery Playground
 
-A comprehensive learning project that demonstrates four practical Python decorators with detailed line-by-line explanations.
+A comprehensive, hands-on repository for mastering "everything" about Python. This project is structured as a series of modules, each covering a fundamental or advanced topic with implementation code, examples, and tests.
 
-## 📚 Project Structure
+## 🗺️ Roadmap
 
-```
-.
-├── decorators/           # Decorator package
-│   ├── __init__.py      # Package initialization
-│   ├── timer.py         # @timer decorator
-│   ├── retry.py         # @retry decorator
-│   ├── rate_limit.py    # @rate_limit decorator
-│   └── cache.py         # @cache decorator
-├── examples/            # Example scripts
-│   ├── timer.py         # @timer examples
-│   ├── retry.py         # @retry examples
-│   ├── rate_limit.py    # @rate_limit examples
-│   └── cache.py         # @cache examples
-├── tests/               # Unit tests
-│   └── test_decorators.py
-├── main.py              # Interactive menu
-├── README.md            # This file
-├── setup.cfg           # Package configuration
-└── plan.md             # Project planning
-```
+See [ROADMAP.md](ROADMAP.md) for the full learning path.
 
-## 🎯 Decorators Included
+## 📚 Current Modules
 
-### 1. @timer
+### 1. Decorators (`decorators/`)
 
-Logs the execution time of functions. Perfect for performance monitoring.
+- **Concepts**: Closures, `functools.wraps`, Higher-order functions.
+- **Implementations**: `@timer`, `@retry`, `@rate_limit`, `@cache`.
 
-```python
-from decorators import timer
+### 2. Context Managers (`context_managers/`)
 
-@timer
-def slow_function():
-    time.sleep(1)
-    return "Done"
-```
-
-### 2. @retry
-
-Automatically retries failed functions with configurable attempts and delays.
-
-```python
-from decorators import retry
-
-@retry(max_attempts=3, delay=1.0)
-def unreliable_api_call():
-    # Might fail sometimes
-    return "Success"
-```
-
-### 3. @rate_limit
-
-Throttles function calls to prevent exceeding rate limits.
-
-```python
-from decorators import rate_limit
-
-@rate_limit(calls=5, period=60)  # 5 calls per minute
-def api_endpoint():
-    return "API response"
-```
-
-### 4. @cache
-
-Caches function results with time-to-live expiration.
-
-```python
-from decorators import cache
-
-@cache(ttl=300)  # Cache for 5 minutes
-def expensive_computation(n):
-    return n * n * n
-```
+- **Concepts**: `with` statement, `__enter__`/`__exit__`, `contextlib`.
+- **Implementations**: Timer context, Async context, State management, Reentrancy.
 
 ## 🚀 How to Use
 
-### Interactive Menu (Recommended)
+### Interactive Menu
+
+Run the main script to see available examples:
 
 ```bash
 python main.py
 ```
 
-### Individual Examples
+### Running Specific Examples
 
 ```bash
-python examples/timer.py      # Learn @timer
-python examples/retry.py      # Learn @retry
-python examples/rate_limit.py # Learn @rate_limit
-python examples/cache.py      # Learn @cache
+# Decorators
+python examples/timer.py
+python examples/retry.py
+
+# Context Managers
+python context_managers/utilities.py
+python context_managers/async_ctx.py
 ```
 
-### Run Tests
+### Running Tests
 
 ```bash
-python tests/test_decorators.py
+pytest tests/
 ```
-
-## 📖 Learning Path
-
-1. **Start with the interactive menu**: Run `python main.py` to see all decorators in action
-2. **Study individual decorators**: Read the implementation files in `decorators/`
-3. **Run focused examples**: Use the example scripts to understand each decorator
-4. **Read the tests**: See how each decorator is tested and what edge cases are covered
-
-## 🎓 Key Concepts Covered
-
-- Decorator basics and syntax
-- `functools.wraps` for preserving metadata
-- Closure and variable capture
-- Higher-order functions
-- Error handling and retry logic
-- Thread safety with locks
-- Caching strategies
-- Rate limiting algorithms
 
 ## 🔧 Requirements
 
-- Python 3.7+
-- No external dependencies (uses only standard library)
+- Python 3.10+
+- No external dependencies (uses standard library for core modules)
 
 ## 📄 License
 
-This project is created for educational purposes. Feel free to use and modify as needed for learning.
+Educational purposes. MIT License.

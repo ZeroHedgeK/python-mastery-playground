@@ -132,4 +132,4 @@ cython_debug/
 .cursor/
 
 # Conda
-.conda-env
+conda-env

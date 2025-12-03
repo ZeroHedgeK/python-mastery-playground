@@ -2,55 +2,56 @@
 
 A comprehensive, hands-on repository for mastering "everything" about Python. This project is structured as a series of modules, each covering a fundamental or advanced topic with implementation code, examples, and tests.
 
-## 🗺️ Roadmap
+## 🗺️ Roadmap & Progress
 
-See [ROADMAP.md](ROADMAP.md) for the full learning path.
+See [ROADMAP.md](ROADMAP.md) for detailed learning objectives.
 
-## 📚 Current Modules
-
-### 1. Decorators (`decorators/`)
-
-- **Concepts**: Closures, `functools.wraps`, Higher-order functions.
-- **Implementations**: `@timer`, `@retry`, `@rate_limit`, `@cache`.
-
-### 2. Context Managers (`context_managers/`)
-
-- **Concepts**: `with` statement, `__enter__`/`__exit__`, `contextlib`.
-- **Implementations**: Timer context, Async context, State management, Reentrancy.
+| Module | Status | Description |
+|--------|--------|-------------|
+| **1. Advanced Patterns** | ✅ Done | Decorators, Context Managers, Closures |
+| **2. Data Structures** | ✅ Done | Comprehensions, Generators, `collections` |
+| **3. OOP** | ✅ Done | Metaclasses, MRO, Magic Methods, Slots |
+| **4. Concurrency** | ✅ Done | AsyncIO, Multiprocessing, Threading |
+| **5. Testing & Quality** | ✅ Done | Pytest Fixtures, Mocking, Type Safety |
+| **6. Functional** | ✅ Done | Partial, Reduce, Immutability, Recursion |
+| **7. Internals** | ✅ Done | Bytecode Disassembly, Memory Management, GC |
 
 ## 🚀 How to Use
 
-### Interactive Menu
-
-Run the main script to see available examples:
-
-```bash
-python main.py
-```
-
-### Running Specific Examples
+### 1. Interactive Demos
+Run specific modules to see concepts in action:
 
 ```bash
-# Decorators
+# Module 1: Decorators
 python examples/timer.py
-python examples/retry.py
 
-# Context Managers
-python context_managers/utilities.py
-python context_managers/async_ctx.py
+# Module 2: Data Structures
+python datastructures/builtins.py
+
+# Module 3: OOP (Metaclasses)
+python oop/metaclasses.py
+
+# Module 4: Concurrency (AsyncIO)
+python concurrency/asyncio_demo.py
+
+# Module 7: Internals (Bytecode)
+python internals/bytecode_inspector.py
 ```
 
-### Running Tests
-
+### 2. Running Tests
+We have a comprehensive test suite covering all modules.
 ```bash
+# Run all tests
 pytest tests/
+
+# Run specific module tests
+pytest tests/test_concurrency.py
 ```
 
 ## 🔧 Requirements
-
 - Python 3.10+
-- No external dependencies (uses standard library for core modules)
+- No external runtime dependencies (uses standard library)
+- Dev dependencies: `pytest`, `pytest-asyncio`, `mypy`, `black`, `flake8`
 
 ## 📄 License
-
 Educational purposes. MIT License.

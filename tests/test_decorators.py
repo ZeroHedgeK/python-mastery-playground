@@ -1,5 +1,5 @@
 """
-tests.py - Unit tests for the decorators.
+test_decorators.py - Unit tests for the decorators.
 
 This file contains tests to verify that our decorators work correctly.
 We'll use Python's built-in unittest module (no external dependencies).
@@ -10,15 +10,50 @@ import unittest
 from io import StringIO
 from unittest.mock import patch
 
-from decorators import cache, rate_limit, retry, timer
-from examples import (
-    compute_sum,
-    fast_function,
-    greet,
-    process_text,
-    regular_function,
-    slow_function,
-)
+from python_mastery.decorators import cache, rate_limit, retry, timer
+
+
+# Test fixtures - decorated functions for testing
+@timer
+def slow_function(duration: float = 1.0) -> str:
+    """A function that simulates slow processing by sleeping."""
+    time.sleep(duration)
+    return f"Slept for {duration} seconds"
+
+
+@timer
+def fast_function(numbers: list[int]) -> int:
+    """A function that performs quick calculations."""
+    return sum(numbers)
+
+
+@timer
+def compute_sum(n: int) -> int:
+    """Calculate the sum of numbers from 1 to n."""
+    return n * (n + 1) // 2
+
+
+@timer
+def process_text(text: str) -> dict:
+    """Process a text string and return various statistics."""
+    return {
+        "length": len(text),
+        "words": len(text.split()),
+        "uppercase": sum(1 for c in text if c.isupper()),
+        "lowercase": sum(1 for c in text if c.islower()),
+    }
+
+
+@timer
+def greet(name: str = "World", greeting: str = "Hello") -> str:
+    """A simple greeting function."""
+    return f"{greeting}, {name}!"
+
+
+def regular_function() -> str:
+    """A regular function without decorator for comparison."""
+    time.sleep(0.05)
+    return "Done"
 
 
 class TestTimerDecorator(unittest.TestCase):
@@ -88,7 +123,7 @@ class TestTimerDecorator(unittest.TestCase):
 
         # Check that docstrings are preserved
         self.assertIsNotNone(slow_function.__doc__)
-        self.assertIn("simulates slow processing", slow_function.__doc__)
+        self.assertIn("slow processing", slow_function.__doc__)
         self.assertIsNotNone(fast_function.__doc__)
         self.assertIn("quick calculations", fast_function.__doc__)
 

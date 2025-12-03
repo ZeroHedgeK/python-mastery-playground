@@ -7,7 +7,7 @@ Run this file directly to see the @cache decorator in action.
 
 import time
 
-from decorators import cache
+from python_mastery.decorators import cache
 
 print("=" * 70)
 print("DEMONSTRATING @cache DECORATOR")

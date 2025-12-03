@@ -7,7 +7,7 @@ Run this file directly to see the @timer decorator in action.
 
 import time
 
-from decorators import timer
+from python_mastery.decorators import timer
 
 print("=" * 70)
 print("DEMONSTRATING @timer DECORATOR")

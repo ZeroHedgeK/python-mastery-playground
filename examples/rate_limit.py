@@ -7,7 +7,7 @@ Run this file directly to see the @rate_limit decorator in action.
 
 import time
 
-from decorators import rate_limit
+from python_mastery.decorators import rate_limit
 
 print("=" * 70)
 print("DEMONSTRATING @rate_limit DECORATOR")

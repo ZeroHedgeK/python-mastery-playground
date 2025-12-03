@@ -8,7 +8,7 @@ with both class-based and decorator-based approaches.
 
 import time
 
-from context_managers import Timer, timer_context
+from python_mastery.context_managers import Timer, timer_context
 
 
 def demonstrate_class_based_timer():

@@ -25,8 +25,8 @@ def test_frozen_dataclass():
     # Reading is fine
     assert p.x == 1
 
-    # Writing raises error
-    with pytest.raises(Exception):  # FrozenInstanceError is a subclass of Exception
+    # Writing raises error (FrozenInstanceError is a subclass of AttributeError)
+    with pytest.raises(AttributeError):
         p.x = 10
 
     # Move returns new object

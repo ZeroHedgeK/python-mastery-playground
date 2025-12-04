@@ -8,8 +8,13 @@ This module demonstrates advanced features of Python classes:
 3. @property: Managed Attributes
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Self
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from typing import Self
 
 
 def demonstrate_singleton() -> None:

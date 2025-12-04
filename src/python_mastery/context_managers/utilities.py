@@ -63,14 +63,12 @@ def demonstrate_nullcontext():
     """
     print("\n--- demonstrate_nullcontext ---")
 
-    use_timeout = False
-
     # Instead of writing two if/else blocks with duplicated logic:
     # context = Timeout(5) if use_timeout else nullcontext()
     # with context:
     #     ...
 
-    with nullcontext() as ctx:
+    with nullcontext():
         print("Running inside a null context (does nothing)")
 
 

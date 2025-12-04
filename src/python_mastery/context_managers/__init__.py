@@ -36,6 +36,10 @@ __all__ = [
     "AsyncTimer",
     "Reusable",
     "Timer",
+    "demonstrate_closing",
+    "demonstrate_exit_stack",
+    "demonstrate_nullcontext",
+    "demonstrate_suppress",
     "env_var",
     "timer_context",
 ]

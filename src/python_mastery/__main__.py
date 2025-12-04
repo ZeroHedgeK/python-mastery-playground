@@ -164,7 +164,7 @@ def run_demo(module_path: str, functions: list[str] | None):
                     print(f">>> Running {func_name}...")
                     func = getattr(mod, func_name)
                     # Handle async functions if necessary, but our demos wrap them (e.g. demonstrate_asyncio)
-                    if hasattr(func, "__call__"):
+                    if callable(func):
                         func()
                     else:
                         print(f"Skipping {func_name} (not callable)")
@@ -205,7 +205,7 @@ def main():
             module_info = MODULES[choice]
             print(f"\n=== {module_info['title']} ===")
 
-            for i, (name, path, funcs) in enumerate(module_info["demos"], 1):
+            for i, (name, _path, _funcs) in enumerate(module_info["demos"], 1):
                 print(f"{i}. {name}")
 
             print("b. Back to Main Menu")

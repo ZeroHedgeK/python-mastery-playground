@@ -36,7 +36,7 @@ class AsyncTimer:
 async def main():
     print("--- Async Context Manager ---")
 
-    async with AsyncTimer("DataFetch") as timer:
+    async with AsyncTimer("DataFetch"):
         print("   ... Simulating network I/O (await sleep)")
         await asyncio.sleep(0.1)
 

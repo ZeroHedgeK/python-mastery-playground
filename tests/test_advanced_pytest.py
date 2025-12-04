@@ -8,10 +8,14 @@ This module demonstrates professional testing techniques:
 3. Parametrization: Running one test with multiple inputs
 """
 
-from unittest.mock import MagicMock, Mock
+from unittest.mock import MagicMock
 
 import pytest
-from python_mastery.testing_patterns.external_services import PaymentGateway, UserManager
+
+from python_mastery.testing_patterns.external_services import (
+    PaymentGateway,
+    UserManager,
+)
 from python_mastery.testing_patterns.type_safety import process_items
 
 # === 1. FIXTURES ===

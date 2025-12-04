@@ -8,7 +8,6 @@ Functional programming relies on:
 """
 
 from dataclasses import dataclass
-from typing import List
 
 
 # 1. Immutability with Dataclasses
@@ -45,13 +44,13 @@ def demonstrate_frozen_dataclass():
 # 2. Pure Functions vs Impure Functions
 
 
-def impure_function(data: List[int]):
+def impure_function(data: list[int]):
     """Modifies the input list (Side Effect). BAD for FP."""
     data.append(999)
     return data
 
 
-def pure_function(data: List[int], new_item: int) -> List[int]:
+def pure_function(data: list[int], new_item: int) -> list[int]:
     """
     Returns a NEW list with the item added.
     Does NOT modify the original input.

@@ -2,9 +2,9 @@
 Tests for Concurrency Module
 """
 
-import asyncio
 
 import pytest
+
 from python_mastery.concurrency.asyncio_demo import fetch_data
 from python_mastery.concurrency.multiprocessing_demo import heavy_computation
 from python_mastery.concurrency.threading_demo import download_file

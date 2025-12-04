@@ -7,9 +7,6 @@ It provides an interactive menu to run demonstrations from all modules.
 """
 
 import importlib
-import pkgutil
-import sys
-from typing import Dict, List, Optional, Tuple
 
 MODULES = {
     "1": {
@@ -155,7 +152,7 @@ MODULES = {
 }
 
 
-def run_demo(module_path: str, functions: Optional[List[str]]):
+def run_demo(module_path: str, functions: list[str] | None):
     """Imports a module and runs specific functions or the whole module."""
     try:
         print(f"\n--- Loading {module_path} ---\n")

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software for educational purposes, please cite it as below."
+type: software
+title: "Python Mastery Playground"
+abstract: "A comprehensive, hands-on repository for mastering Python with modules covering decorators, context managers, data structures, OOP, functional programming, concurrency, internals, and testing patterns."
+authors:
+  - family-names: "Python Mastery Project"
+    email: learning@example.com
+repository-code: "https://github.com/ZeroHedgeK/python-mastery-playground"
+url: "https://github.com/ZeroHedgeK/python-mastery-playground"
+keywords:
+  - python
+  - education
+  - learning
+  - decorators
+  - context-managers
+  - object-oriented-programming
+  - functional-programming
+  - concurrency
+  - testing
+  - best-practices
+license: MIT
+version: 2.0.0
+date-released: 2024-12-01

@@ -1,5 +1,17 @@
 # Python Mastery Playground
 
+<div align="center">
+
+[![CI](https://github.com/ZeroHedgeK/python-mastery-playground/workflows/CI/badge.svg)](https://github.com/ZeroHedgeK/python-mastery-playground/actions/workflows/ci.yml)
+[![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](http://mypy-lang.org/)
+[![codecov](https://codecov.io/gh/ZeroHedgeK/python-mastery-playground/branch/main/graph/badge.svg)](https://codecov.io/gh/ZeroHedgeK/python-mastery-playground)
+
+</div>
+
 A comprehensive, hands-on repository for mastering Python. This project is structured as a series of modules, each covering a fundamental or advanced topic with implementation code, examples, and tests.
 
 **This repository is designed for self-study.** Every file contains detailed comments explaining not just *what* the code does, but *why* it works that way.
@@ -306,6 +318,17 @@ python-mastery-playground/
 
 Found a bug? Have a suggestion? Contributions are welcome!
 
+Please see our [Contributing Guide](CONTRIBUTING.md) for detailed information on:
+
+- Setting up your development environment
+- Coding standards and best practices  
+- How to submit pull requests
+- Running tests and quality checks
+
+For bug reports, feature requests, or questions, please use our [issue templates](.github/ISSUE_TEMPLATE/).
+
+### Quick Start for Contributors
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
@@ -313,6 +336,14 @@ Found a bug? Have a suggestion? Contributions are welcome!
 5. Commit your changes (`git commit -m 'Add amazing feature'`)
 6. Push to the branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request
+
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
+---
+
+## 🔒 Security
+
+For security vulnerabilities, please see our [Security Policy](SECURITY.md) for responsible disclosure guidelines.
 
 ---
 
@@ -326,10 +357,40 @@ Found a bug? Have a suggestion? Contributions are welcome!
 
 ## 📄 License
 
-MIT License - feel free to use this for learning, teaching, or any other purpose.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📖 Citation
+
+If you use this project for academic purposes, please cite it using the information in [CITATION.cff](CITATION.cff).
 
 ---
 
 ## ⭐ Support
 
-If this repository helped you learn Python, please consider giving it a star on GitHub!
+If this repository helped you learn Python, please consider:
+
+- ⭐ Starring the repository on GitHub
+- 📢 Sharing it with others who are learning Python
+- 🐛 Reporting bugs or suggesting improvements
+- 🤝 Contributing to the project
+
+---
+
+## 📬 Connect
+
+- **Issues**: [GitHub Issues](https://github.com/ZeroHedgeK/python-mastery-playground/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/ZeroHedgeK/python-mastery-playground/discussions)
+- **Security**: See [SECURITY.md](SECURITY.md)
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Python learners**
+
+[![GitHub stars](https://img.shields.io/github/stars/ZeroHedgeK/python-mastery-playground?style=social)](https://github.com/ZeroHedgeK/python-mastery-playground/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ZeroHedgeK/python-mastery-playground?style=social)](https://github.com/ZeroHedgeK/python-mastery-playground/network/members)
+
+</div>

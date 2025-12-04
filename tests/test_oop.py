@@ -2,8 +2,6 @@
 Tests for OOP Module
 """
 
-import pytest
-from python_mastery.oop.advanced_classes import demonstrate_properties, demonstrate_singleton
 from python_mastery.oop.magic_methods import CustomList
 
 

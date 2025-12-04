@@ -21,7 +21,9 @@ from python_mastery.decorators import rate_limit, retry
 from python_mastery.context_managers import AsyncTimer
 
 # [ASYNCIO] reference import to align with library patterns
-from python_mastery.concurrency import asyncio_patterns as _async_reference  # noqa: F401
+from python_mastery.concurrency import (
+    asyncio_patterns as _async_reference,
+)  # noqa: F401
 
 
 class FakeSession:
@@ -55,7 +57,9 @@ def fetch_sync(session: FakeSession, url: str) -> str:
     return f"body-for-{url}"
 
 
-async def fetch_with_semaphore(session: FakeSession, url: str, sem: asyncio.Semaphore) -> str:
+async def fetch_with_semaphore(
+    session: FakeSession, url: str, sem: asyncio.Semaphore
+) -> str:
     # [ASYNCIO] semaphore bounds concurrency; [CONTEXT MANAGER] AsyncTimer measures block
     async with sem:
         async with AsyncTimer(f"fetch {url}"):
@@ -91,13 +95,17 @@ async def composed_scrape(urls: Iterable[str]) -> None:
     print("\n[composed] starting with retry + rate limit + context mgmt")
     async with FakeSession() as session:  # [CONTEXT MANAGER]
         sem = asyncio.Semaphore(2)
-        results = await asyncio.gather(*(fetch_with_semaphore(session, u, sem) for u in urls))
+        results = await asyncio.gather(
+            *(fetch_with_semaphore(session, u, sem) for u in urls)
+        )
         print("[composed] fetched bodies:", results)
 
 
 def explain_synergy() -> None:
     print("\nWhy this combination matters:")
-    print("  • asyncio handles many URLs concurrently without threads for I/O-bound work")
+    print(
+        "  • asyncio handles many URLs concurrently without threads for I/O-bound work"
+    )
     print("  • @rate_limit + @retry keep noisy endpoints stable under load")
     print("  • async context managers guarantee session cleanup and timed visibility")
     print("  • semaphore prevents runaway concurrency that would break rate limits")

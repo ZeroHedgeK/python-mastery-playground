@@ -18,7 +18,9 @@ from python_mastery.oop import metaclasses as _metaclasses_reference  # noqa: F4
 from python_mastery.decorators import timer
 
 # [FUNCTIONAL] highlight partial/composition
-from python_mastery.functional import functional_tools as _functional_reference  # noqa: F401
+from python_mastery.functional import (
+    functional_tools as _functional_reference,
+)  # noqa: F401
 
 
 class PluginMeta(type):

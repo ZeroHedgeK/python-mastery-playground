@@ -112,7 +112,9 @@ def thread_safe_lookup(key: str, repeats: int = 4) -> None:
 
 def explain_synergy() -> None:
     print("\nWhy this combination matters:")
-    print("  • Threading introduces races; locks inside the descriptor guard shared state")
+    print(
+        "  • Threading introduces races; locks inside the descriptor guard shared state"
+    )
     print("  • Decorators keep instrumentation and policy reusable")
     print("  • Descriptor keeps per-instance caches isolated without boilerplate")
 

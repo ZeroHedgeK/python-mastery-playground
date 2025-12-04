@@ -20,7 +20,9 @@ from python_mastery.context_managers import Timer
 from python_mastery.decorators import timer
 
 # [FUNCTIONAL] highlight functional composition utilities
-from python_mastery.functional import functional_tools as _functional_reference  # noqa: F401
+from python_mastery.functional import (
+    functional_tools as _functional_reference,
+)  # noqa: F401
 
 
 def fake_csv_source(rows: int = 12) -> io.StringIO:

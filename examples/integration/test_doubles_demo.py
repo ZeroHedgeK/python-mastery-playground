@@ -14,7 +14,9 @@ import tempfile
 from typing import Protocol
 
 # [TESTING] reference import
-from python_mastery.testing_patterns import external_services as _testing_reference  # noqa: F401
+from python_mastery.testing_patterns import (
+    external_services as _testing_reference,
+)  # noqa: F401
 
 # [CONTEXT MANAGER] for env overrides/cleanup
 from python_mastery.context_managers import env_var, timer_context

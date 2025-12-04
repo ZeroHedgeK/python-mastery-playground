@@ -2,16 +2,27 @@
 retry_decorator.py - The @retry decorator implementation.
 
 This module contains the @retry decorator that retries failed functions.
-Each line is explained in detail to help understand how decorators work.
+Supports both sync and async functions with configurable retry strategies.
 """
 
+import asyncio
 import functools
+import logging
 import time
 from collections.abc import Callable
 from typing import Any
 
+from python_mastery.exceptions import RetryExhausted
 
-def retry(max_attempts: int = 3, delay: float = 1.0):
+logger = logging.getLogger(__name__)
+
+
+def retry(
+    max_attempts: int = 3,
+    delay: float = 1.0,
+    exceptions: tuple[type[Exception], ...] = (Exception,),
+    backoff: float = 1.0,
+):
     """
     A decorator that retries a function if it fails.
 
@@ -19,15 +30,25 @@ def retry(max_attempts: int = 3, delay: float = 1.0):
     before giving up. It's useful for network calls, file operations, or any
     function that might fail temporarily.
 
+    Features:
+        - Supports both sync and async functions
+        - Configurable exponential backoff
+        - Raises RetryExhausted with original exception preserved
+
     Args:
         max_attempts: Maximum number of times to try the function (default: 3)
-        delay: Seconds to wait between retries (default: 1.0)
+        delay: Initial seconds to wait between retries (default: 1.0)
+        exceptions: Tuple of exception types to catch and retry on (default: (Exception,))
+        backoff: Multiplier for delay after each attempt (default: 1.0, no backoff)
+                 Use 2.0 for exponential backoff (delay doubles each retry)
 
     Returns:
         A decorator that wraps the function with retry logic
+
+    Raises:
+        RetryExhausted: When all retry attempts fail (wraps the last exception)
     """
 
-    # This is the actual decorator function that takes the function to wrap
     def decorator(func: Callable) -> Callable:
         """
         The decorator that wraps the function with retry logic.
@@ -39,50 +60,103 @@ def retry(max_attempts: int = 3, delay: float = 1.0):
             A wrapper function with retry capability
         """
 
-        @functools.wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Any:
-            """
-            The wrapper function that implements the retry logic.
+        if asyncio.iscoroutinefunction(func):
+            @functools.wraps(func)
+            async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
+                """Async wrapper with retry logic."""
+                attempts = 0
+                current_delay = delay
+                last_exception: Exception = RuntimeError("No attempts made")
 
-            This function will attempt to call the original function multiple
-            times, catching exceptions and retrying until success or max_attempts.
-            """
+                while attempts < max_attempts:
+                    attempts += 1
 
-            # Initialize attempt counter
-            attempts = 0
+                    try:
+                        result = await func(*args, **kwargs)
+                        if attempts > 1:
+                            logger.info(
+                                "Function '%s' succeeded on attempt %d",
+                                func.__name__,
+                                attempts,
+                            )
+                        return result
 
-            # Loop until we succeed or run out of attempts
-            while attempts < max_attempts:
-                attempts += 1  # Increment attempt counter
+                    except exceptions as e:
+                        last_exception = e
 
-                try:
-                    # Try to execute the original function
-                    # If this succeeds, we return the result immediately
-                    result = func(*args, **kwargs)
+                        if attempts == max_attempts:
+                            logger.error(
+                                "Function '%s' failed after %d attempts",
+                                func.__name__,
+                                max_attempts,
+                            )
+                            raise RetryExhausted(
+                                func.__name__, max_attempts, e
+                            ) from e
 
-                    # If we get here, the function succeeded
-                    if attempts > 1:
-                        print(f"Function '{func.__name__}' succeeded on attempt {attempts}")
+                        logger.warning(
+                            "Function '%s' failed on attempt %d: %s",
+                            func.__name__,
+                            attempts,
+                            e,
+                        )
+                        logger.debug("Retrying in %.1f seconds...", current_delay)
 
-                    return result
+                        await asyncio.sleep(current_delay)
+                        current_delay *= backoff
 
-                except Exception as e:
-                    # If this is the last attempt, re-raise the exception
-                    if attempts == max_attempts:
-                        print(f"Function '{func.__name__}' failed after {max_attempts} attempts")
-                        raise  # Re-raise the last exception
+                # Should never reach here
+                raise RetryExhausted(func.__name__, max_attempts, last_exception)
 
-                    # Otherwise, print a message and retry
-                    print(f"Function '{func.__name__}' failed on attempt {attempts}: {e}")
-                    print(f"Retrying in {delay} seconds...")
+            return async_wrapper
+        else:
+            @functools.wraps(func)
+            def wrapper(*args: Any, **kwargs: Any) -> Any:
+                """Sync wrapper with retry logic."""
+                attempts = 0
+                current_delay = delay
+                last_exception: Exception = RuntimeError("No attempts made")
 
-                    # Wait before retrying
-                    time.sleep(delay)
+                while attempts < max_attempts:
+                    attempts += 1
 
-            # This line should never be reached due to the logic above,
-            # but it's here for completeness
-            raise RuntimeError(f"Failed after {max_attempts} attempts")
+                    try:
+                        result = func(*args, **kwargs)
+                        if attempts > 1:
+                            logger.info(
+                                "Function '%s' succeeded on attempt %d",
+                                func.__name__,
+                                attempts,
+                            )
+                        return result
 
-        return wrapper
+                    except exceptions as e:
+                        last_exception = e
+
+                        if attempts == max_attempts:
+                            logger.error(
+                                "Function '%s' failed after %d attempts",
+                                func.__name__,
+                                max_attempts,
+                            )
+                            raise RetryExhausted(
+                                func.__name__, max_attempts, e
+                            ) from e
+
+                        logger.warning(
+                            "Function '%s' failed on attempt %d: %s",
+                            func.__name__,
+                            attempts,
+                            e,
+                        )
+                        logger.debug("Retrying in %.1f seconds...", current_delay)
+
+                        time.sleep(current_delay)
+                        current_delay *= backoff
+
+                # Should never reach here
+                raise RetryExhausted(func.__name__, max_attempts, last_exception)
+
+            return wrapper
 
     return decorator

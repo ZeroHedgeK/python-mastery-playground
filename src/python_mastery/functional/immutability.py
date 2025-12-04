@@ -32,7 +32,7 @@ def demonstrate_frozen_dataclass():
     print(f"Original: {p1}")
 
     try:
-        p1.x = 10  # This raises FrozenInstanceError
+        p1.x = 10  # type: ignore[misc]  # Intentionally modifying frozen to demo error
     except Exception as e:
         print(f"Caught error modifying frozen object: {e}")
 

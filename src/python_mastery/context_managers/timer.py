@@ -60,6 +60,7 @@ class Timer:
             bool: False to propagate exceptions, True to suppress them
         """
         self.end_time = time.perf_counter()
+        assert self.start_time is not None, "Timer was not started"
         elapsed = self.end_time - self.start_time
 
         # Print timing information

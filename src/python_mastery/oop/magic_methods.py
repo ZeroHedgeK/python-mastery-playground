@@ -6,7 +6,16 @@ This module demonstrates how to make classes behave like built-in types using
 double-underscore (dunder) methods.
 """
 
-from typing import Any, Self
+from __future__ import annotations
+
+import sys
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    if sys.version_info >= (3, 11):
+        from typing import Self
+    else:
+        from typing_extensions import Self
 
 
 class CustomList:
@@ -35,11 +44,11 @@ class CustomList:
         """Called by repr(obj) (Developer string)."""
         return f"CustomList(*{self._data})"
 
-    def __add__(self, other: object) -> Self | type[NotImplemented]:
+    def __add__(self, other: object) -> Self:
         """Called by obj + other."""
         if isinstance(other, CustomList):
-            return CustomList(*(self._data + other._data))
-        return NotImplemented
+            return self.__class__(*(self._data + other._data))
+        return NotImplemented  # type: ignore[return-value]
 
 
 def demonstrate_magic_methods() -> None:

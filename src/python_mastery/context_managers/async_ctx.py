@@ -28,6 +28,7 @@ class AsyncTimer:
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         # Can await cleanup here (e.g., closing connection)
+        assert self.start is not None, "AsyncTimer was not started"
         elapsed = time.perf_counter() - self.start
         print(f"[{self.name}] Finished in {elapsed:.4f}s")
         # Like sync __exit__, return True to suppress exceptions

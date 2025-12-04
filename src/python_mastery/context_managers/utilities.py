@@ -99,8 +99,8 @@ def demonstrate_exit_stack():
             files = [stack.enter_context(open(f)) for f in filenames]
 
             print(f"Opened {len(files)} files simultaneously:")
-            for f in files:
-                print(f" - {f.name}: {f.read()}")
+            for file_obj in files:
+                print(f" - {file_obj.name}: {file_obj.read()}")
 
             # When this block exits, stack.close() is called, closing ALL files
             # in reverse order.

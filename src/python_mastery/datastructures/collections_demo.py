@@ -48,7 +48,7 @@ def demonstrate_defaultdict():
 
     # 2. Counting (Int factory)
     # int() returns 0, perfect for counters
-    char_counts = defaultdict(int)
+    char_counts: defaultdict[str, int] = defaultdict(int)
     for char in "mississippi":
         char_counts[char] += 1
     print(f"Char counts: {dict(char_counts)}")
@@ -74,7 +74,7 @@ def demonstrate_deque():
 
     # 2. Maxlen (Circular buffer)
     # useful for keeping "last N items" history
-    history = deque(maxlen=3)
+    history: deque[int] = deque(maxlen=3)
     for i in range(5):
         history.append(i)
         print(f"Added {i}, history: {list(history)}")
@@ -101,11 +101,11 @@ def demonstrate_chainmap():
     """
     print("\n=== collections.ChainMap ===")
 
-    defaults = {"theme": "dark", "show_index": True}
-    user_config = {"show_index": False}
+    defaults: dict[str, str | bool] = {"theme": "dark", "show_index": True}
+    user_config: dict[str, str | bool] = {"show_index": False}
 
     # Search order: user_config -> defaults
-    config = ChainMap(user_config, defaults)
+    config: ChainMap[str, str | bool] = ChainMap(user_config, defaults)
 
     print(f"Effective config: {config['theme']} (from defaults)")
     print(f"Effective config: {config['show_index']} (from user)")

@@ -7,8 +7,9 @@ It provides an interactive menu to run demonstrations from all modules.
 """
 
 import importlib
+from typing import Any
 
-MODULES = {
+MODULES: dict[str, dict[str, Any]] = {
     "1": {
         "title": "Advanced Patterns (Decorators & Context Managers)",
         "demos": [

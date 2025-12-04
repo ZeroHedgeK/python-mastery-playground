@@ -2,7 +2,6 @@
 Tests for Concurrency Module
 """
 
-
 import pytest
 
 from python_mastery.concurrency.asyncio_demo import fetch_data

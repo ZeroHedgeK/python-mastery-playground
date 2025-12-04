@@ -10,7 +10,6 @@ enter/exit multiple times.
 """
 
 
-
 class SingleUse:
     """
     Typical context manager. Can only be used once.

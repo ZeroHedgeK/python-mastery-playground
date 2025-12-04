@@ -136,3 +136,4 @@ cython_debug/
 
 # Conda
 conda-env
+.conda-env

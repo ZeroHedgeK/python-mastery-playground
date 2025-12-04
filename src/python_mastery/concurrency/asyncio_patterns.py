@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import asyncio
+from collections.abc import AsyncIterator, Awaitable, Callable, Sequence
 from concurrent.futures import ThreadPoolExecutor
-from typing import Any, AsyncIterator, Awaitable, Callable, Sequence
+from typing import Any
 
 
 async def timeout_example(delay: float, timeout: float) -> bool:

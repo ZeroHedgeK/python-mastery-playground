@@ -1,5 +1,3 @@
-import asyncio
-
 import pytest
 
 from python_mastery.concurrency.asyncio_patterns import (

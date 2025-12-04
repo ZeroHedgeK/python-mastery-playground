@@ -1,5 +1,3 @@
-import pytest
-
 from python_mastery.control_flow.advanced_flow import (
     demonstrate_for_else,
     demonstrate_pattern_matching,

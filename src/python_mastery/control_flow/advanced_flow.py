@@ -1,7 +1,7 @@
 """Advanced control-flow patterns: pipelines, pattern matching, and for-else."""
 
 from collections.abc import Iterable, Iterator
-from typing import Any, Generator
+from typing import Any
 
 
 def process_command(command: Any) -> str:

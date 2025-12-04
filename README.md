@@ -37,10 +37,11 @@ We suggest studying the modules in this order, as each builds on concepts from p
 | 2 | **Context Managers** | 1-2 hours | `with` statement, `__enter__`/`__exit__`, resource management |
 | 3 | **Data Structures** | 2-3 hours | Comprehensions, generators, `collections` module |
 | 4 | **OOP** | 3-4 hours | Metaclasses, MRO, magic methods, `__slots__` |
-| 5 | **Functional** | 2-3 hours | `partial`, `reduce`, immutability, pure functions |
-| 6 | **Concurrency** | 3-4 hours | Threading vs multiprocessing vs asyncio |
-| 7 | **Internals** | 2-3 hours | Bytecode, reference counting, garbage collection |
-| 8 | **Testing Patterns** | 2-3 hours | Pytest fixtures, mocking, type safety |
+| 5 | **Concurrency** | 3-4 hours | Threading vs multiprocessing vs asyncio + async patterns |
+| 6 | **Control Flow** | 1-2 hours | Structural pattern matching, pipelines, for/else |
+| 7 | **Functional** | 2-3 hours | `partial`, `reduce`, immutability, pure functions |
+| 8 | **Internals** | 2-3 hours | Bytecode, reference counting, garbage collection |
+| 9 | **Testing Patterns** | 2-3 hours | Pytest fixtures, mocking, type safety |
 
 ### Study Method (For Each Module)
 
@@ -178,12 +179,28 @@ pytest tests/test_decorators.py -v
 | `threading_demo.py` | Thread pools, GIL limitations | ⭐⭐ Intermediate |
 | `multiprocessing_demo.py` | Process pools, avoiding GIL | ⭐⭐ Intermediate |
 | `asyncio_demo.py` | Event loop, coroutines, `gather` | ⭐⭐⭐ Advanced |
+| `asyncio_patterns.py` | Timeouts, cancellation, bounded concurrency, async streams, executor bridging, retries | ⭐⭐⭐ Advanced |
 
 **Try this exercise:** Measure the speedup of multiprocessing vs threading for a CPU-bound task.
 
 ---
+### Module 6: Control Flow (`src/python_mastery/control_flow/`)
 
-### Module 6: Functional Programming (`src/python_mastery/functional/`)
+**What you'll learn:**
+- Structural pattern matching (`match/case`) for clean branching
+- Generator pipelines for streaming transformations
+- `for/else` search patterns
+
+**Key files to study:**
+| File | Concept | Difficulty |
+|------|---------|------------|
+| `advanced_flow.py` | Pattern matching, pipelines, for/else | ⭐⭐ Intermediate |
+
+**Try this exercise:** Extend `process_command` with a new command that validates input types using guards.
+
+---
+
+### Module 7: Functional Programming (`src/python_mastery/functional/`)
 
 **What you'll learn:**
 - `functools.partial` for partial application
@@ -201,7 +218,7 @@ pytest tests/test_decorators.py -v
 
 ---
 
-### Module 7: Python Internals (`src/python_mastery/internals/`)
+### Module 8: Python Internals (`src/python_mastery/internals/`)
 
 **What you'll learn:**
 - How Python compiles code to bytecode
@@ -218,7 +235,7 @@ pytest tests/test_decorators.py -v
 
 ---
 
-### Module 8: Testing Patterns (`src/python_mastery/testing_patterns/`)
+### Module 9: Testing Patterns (`src/python_mastery/testing_patterns/`)
 
 **What you'll learn:**
 - Writing effective pytest tests
@@ -260,6 +277,8 @@ pip install -e ".[dev]"
 # Interactive module selector
 python -m python_mastery
 
+# Menu tips: Control Flow demos are under option 8; Concurrency option 4 now includes advanced asyncio patterns.
+
 # Or run specific examples
 python examples/timer.py
 python examples/cache.py
@@ -300,8 +319,9 @@ python-mastery-playground/
 │   ├── context_managers/     # with statement patterns
 │   ├── datastructures/       # comprehensions, generators, collections
 │   ├── oop/                  # metaclasses, MRO, magic methods
+│   ├── control_flow/         # pattern matching, pipelines, for/else
 │   ├── functional/           # partial, reduce, immutability
-│   ├── concurrency/          # threading, multiprocessing, asyncio
+│   ├── concurrency/          # threading, multiprocessing, asyncio, async patterns
 │   ├── internals/            # bytecode, memory, GC
 │   ├── testing_patterns/     # pytest patterns, mocking
 │   └── exceptions.py         # Custom exception hierarchy

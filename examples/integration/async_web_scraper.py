@@ -14,16 +14,16 @@ import random
 import time
 from typing import Iterable
 
-# [DECORATOR] retry/rate_limit layer resilience and throttling
-from python_mastery.decorators import rate_limit, retry
+# [ASYNCIO] reference import to align with library patterns
+from python_mastery.concurrency import (  # noqa: F401
+    asyncio_patterns as _async_reference,
+)
 
 # [CONTEXT MANAGER] AsyncTimer wraps async blocks for lifecycle and timing
 from python_mastery.context_managers import AsyncTimer
 
-# [ASYNCIO] reference import to align with library patterns
-from python_mastery.concurrency import (
-    asyncio_patterns as _async_reference,
-)  # noqa: F401
+# [DECORATOR] retry/rate_limit layer resilience and throttling
+from python_mastery.decorators import rate_limit, retry
 
 
 class FakeSession:

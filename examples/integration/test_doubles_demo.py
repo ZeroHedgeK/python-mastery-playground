@@ -13,16 +13,16 @@ import os
 import tempfile
 from typing import Protocol
 
-# [TESTING] reference import
-from python_mastery.testing_patterns import (
-    external_services as _testing_reference,
-)  # noqa: F401
-
 # [CONTEXT MANAGER] for env overrides/cleanup
 from python_mastery.context_managers import env_var, timer_context
 
 # [OOP] reference import for alignment
 from python_mastery.oop import advanced_classes as _oop_reference  # noqa: F401
+
+# [TESTING] reference import
+from python_mastery.testing_patterns import (  # noqa: F401
+    external_services as _testing_reference,
+)
 
 
 class DataClient(Protocol):  # [PROTOCOL]

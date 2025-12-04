@@ -11,16 +11,16 @@ from __future__ import annotations
 from functools import partial
 from typing import Callable, Dict, List
 
-# [METACLASS] import aligns with library primitives
-from python_mastery.oop import metaclasses as _metaclasses_reference  # noqa: F401
-
 # [DECORATOR] reuse a timing decorator for visibility
 from python_mastery.decorators import timer
 
 # [FUNCTIONAL] highlight partial/composition
-from python_mastery.functional import (
+from python_mastery.functional import (  # noqa: F401
     functional_tools as _functional_reference,
-)  # noqa: F401
+)
+
+# [METACLASS] import aligns with library primitives
+from python_mastery.oop import metaclasses as _metaclasses_reference  # noqa: F401
 
 
 class PluginMeta(type):

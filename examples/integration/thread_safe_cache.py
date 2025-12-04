@@ -11,18 +11,17 @@ import threading
 import time
 from typing import Any, Callable, Dict, Optional, Tuple
 
-# [DECORATOR] timing helper
-from python_mastery.decorators import timer
+# [THREADING] reference import for concept alignment
+from python_mastery.concurrency import threading_demo as _thread_reference  # noqa: F401
 
 # [CONTEXT MANAGER] Timer used for visibility
 from python_mastery.context_managers import Timer
 
+# [DECORATOR] timing helper
+from python_mastery.decorators import timer
+
 # [OOP] reference import to align with descriptor patterns
 from python_mastery.oop import advanced_classes as _oop_reference  # noqa: F401
-
-# [THREADING] reference import for concept alignment
-from python_mastery.concurrency import threading_demo as _thread_reference  # noqa: F401
-
 
 unsafe_cache: Dict[str, Tuple[float, str]] = {}
 

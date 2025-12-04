@@ -19,7 +19,6 @@ from python_mastery.decorators import timer
 # [OOP] reference import for alignment
 from python_mastery.oop import advanced_classes as _oop_reference  # noqa: F401
 
-
 CommandFactory = Callable[[List[str]], "Command"]
 
 registry: Dict[str, CommandFactory] = {}

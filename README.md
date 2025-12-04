@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![CI](https://github.com/ZeroHedgeK/python-mastery-playground/workflows/CI/badge.svg)](https://github.com/ZeroHedgeK/python-mastery-playground/actions/workflows/ci.yml)
+[![CI](https://github.com/ZeroHedgeK/python-mastery-playground/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ZeroHedgeK/python-mastery-playground/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

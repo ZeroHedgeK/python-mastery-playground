@@ -88,6 +88,7 @@ def rate_limit(calls: int = 5, period: float = 60.0):
             )
 
         if asyncio.iscoroutinefunction(func):
+
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Async wrapper with rate limiting."""
@@ -97,6 +98,7 @@ def rate_limit(calls: int = 5, period: float = 60.0):
 
             return async_wrapper
         else:
+
             @functools.wraps(func)
             def wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Sync wrapper with rate limiting."""

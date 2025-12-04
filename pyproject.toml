@@ -16,7 +16,11 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Education",
+    "Typing :: Typed",
 ]
 dependencies = []
 
@@ -24,8 +28,9 @@ dependencies = []
 dev = [
     "pytest",
     "pytest-asyncio",
+    "pytest-cov",
     "black",
-    "flake8",
+    "ruff",
     "mypy",
     "isort",
 ]
@@ -37,6 +42,8 @@ where = ["src"]
 addopts = "-v"
 testpaths = ["tests"]
 python_files = "test_*.py"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.black]
 line-length = 88
@@ -52,4 +59,25 @@ warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
 check_untyped_defs = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "C4", "UP"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+source = ["src/python_mastery"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
 

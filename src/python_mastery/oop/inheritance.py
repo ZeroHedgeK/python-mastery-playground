@@ -8,30 +8,34 @@ It covers:
 2. Mixins: Composition over Inheritance.
 """
 
-def demonstrate_mro():
+import json
+
+
+def demonstrate_mro() -> None:
     """
-    Method Resolution Order (MRO).
+    Demonstrate Method Resolution Order (MRO).
+
     Python uses C3 Linearization to determine the order in which parent classes are searched.
     """
     print("\n=== Method Resolution Order (Diamond Problem) ===")
 
     class A:
-        def speak(self):
+        def speak(self) -> None:
             print("A speaks")
 
     class B(A):
-        def speak(self):
+        def speak(self) -> None:
             print("B speaks")
             super().speak()
 
     class C(A):
-        def speak(self):
+        def speak(self) -> None:
             print("C speaks")
             super().speak()
 
     # D inherits from B and C. Both inherit from A.
     class D(B, C):
-        def speak(self):
+        def speak(self) -> None:
             print("D speaks")
             super().speak()
 
@@ -44,9 +48,10 @@ def demonstrate_mro():
     d.speak()
 
 
-def demonstrate_mixins():
+def demonstrate_mixins() -> None:
     """
-    Mixins.
+    Demonstrate Mixins.
+
     Small classes that provide specific functionality to be reused across unrelated classes.
     They are not meant to be instantiated alone.
     """
@@ -54,13 +59,13 @@ def demonstrate_mixins():
 
     class JsonMixin:
         """Adds to_json() capability to any class."""
-        def to_json(self):
-            import json
+
+        def to_json(self) -> str:
             # Access self.__dict__ of the child class
             return json.dumps(self.__dict__)
 
     class Person:
-        def __init__(self, name, age):
+        def __init__(self, name: str, age: int) -> None:
             self.name = name
             self.age = age
 
@@ -75,4 +80,3 @@ def demonstrate_mixins():
 if __name__ == "__main__":
     demonstrate_mro()
     demonstrate_mixins()
-

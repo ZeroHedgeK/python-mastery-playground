@@ -8,11 +8,10 @@ This module explores the low-level details of CPython:
 """
 
 from .bytecode_inspector import inspect_function
-from .memory_management import demonstrate_ref_counting, demonstrate_garbage_collection
+from .memory_management import demonstrate_garbage_collection, demonstrate_ref_counting
 
 __all__ = [
     "inspect_function",
     "demonstrate_ref_counting",
     "demonstrate_garbage_collection",
 ]
-

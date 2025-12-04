@@ -8,11 +8,12 @@ Ideal for CPU-intensive tasks (math, image processing).
 """
 
 import multiprocessing
-import time
 import os
+import time
 
-def heavy_computation(num):
-    """Simulates a CPU-intensive task."""
+
+def heavy_computation(num: int) -> int:
+    """Simulate a CPU-intensive task."""
     print(f"Process-{os.getpid()}: Calculating factorial of {num}...")
     result = 1
     for i in range(1, num + 1):
@@ -24,7 +25,9 @@ def heavy_computation(num):
     print(f"Process-{os.getpid()}: Finished {num}!")
     return result
 
-def demonstrate_multiprocessing():
+
+def demonstrate_multiprocessing() -> None:
+    """Demonstrate using multiprocessing Pool for CPU-bound tasks."""
     print("\n=== Multiprocessing (CPU Bound) ===")
 
     cpu_count = multiprocessing.cpu_count()
@@ -47,6 +50,9 @@ def demonstrate_multiprocessing():
     # this would take 4 * 0.5s = 2.0s.
     # With multiprocessing, it should take ~0.5-0.6s total.
 
+    # Suppress unused variable warning
+    _ = results
+
+
 if __name__ == "__main__":
     demonstrate_multiprocessing()
-

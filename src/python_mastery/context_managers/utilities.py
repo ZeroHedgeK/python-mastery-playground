@@ -7,8 +7,9 @@ Mastering these prevents you from reinventing the wheel.
 """
 
 import os
-from contextlib import suppress, closing, nullcontext, ExitStack
+from contextlib import ExitStack, closing, nullcontext, suppress
 from urllib.request import urlopen
+
 
 def demonstrate_suppress():
     """
@@ -44,6 +45,7 @@ def demonstrate_closing():
     class DatabaseConnection:
         def query(self):
             print("Executing query...")
+
         def close(self):
             print("Connection closed.")
 
@@ -117,4 +119,3 @@ if __name__ == "__main__":
     demonstrate_closing()
     demonstrate_nullcontext()
     demonstrate_exit_stack()
-

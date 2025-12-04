@@ -29,7 +29,7 @@ class Timer:
     def __init__(self, name: str | None = None):
         """
         Initialize the timer.
-        
+
         Args:
             name: Optional name for the timer (useful for identification)
         """
@@ -68,12 +68,12 @@ class Timer:
 
         # Return False to propagate any exceptions that occurred
         return False
-    
+
     @property
     def elapsed(self) -> float | None:
         """
         Get the elapsed time in seconds.
-        
+
         Returns:
             float: Elapsed time if timer has started, None otherwise
         """

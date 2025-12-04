@@ -7,18 +7,20 @@ However, due to the Global Interpreter Lock (GIL), only one thread executes Pyth
 This makes them ideal for I/O bound tasks (waiting for network, disk, user input) where the GIL is released.
 """
 
-import threading
-import time
 import concurrent.futures
+import time
 
-def download_file(file_id):
-    """Simulates downloading a file (I/O bound task)."""
+
+def download_file(file_id: int) -> str:
+    """Simulate downloading a file (I/O bound task)."""
     print(f"Thread-{file_id}: Starting download...")
     time.sleep(0.5)  # Simulate network latency
     print(f"Thread-{file_id}: Download complete!")
     return f"file_{file_id}.dat"
 
-def demonstrate_threading():
+
+def demonstrate_threading() -> None:
+    """Demonstrate using ThreadPoolExecutor for I/O-bound tasks."""
     print("\n=== Threading (I/O Bound) ===")
 
     start_time = time.perf_counter()
@@ -44,6 +46,6 @@ def demonstrate_threading():
     # Note: 5 tasks * 0.5s = 2.5s sequential work.
     # With 3 workers, it should take approx 1.0s (2 batches).
 
+
 if __name__ == "__main__":
     demonstrate_threading()
-

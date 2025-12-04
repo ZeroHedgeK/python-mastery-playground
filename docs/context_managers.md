@@ -8,11 +8,11 @@ Context managers provide a clean way to manage resources and handle setup/cleanu
 
 This repository covers the following fundamental topics:
 
-1.  **Basic Implementation**: Class-based vs Generator-based (`timer.py`)
-2.  **Standard Utilities**: Built-in tools in `contextlib` (`utilities.py`)
-3.  **Async Contexts**: Using `async with` (`async_ctx.py`)
-4.  **State Management**: Managing global state safely (`state.py`)
-5.  **Reusability**: Single-use vs Reentrant context managers (`reentrant.py`)
+1.  **Basic Implementation**: Class-based vs Generator-based (`src/python_mastery/context_managers/timer.py`)
+2.  **Standard Utilities**: Built-in tools in `contextlib` (`src/python_mastery/context_managers/utilities.py`)
+3.  **Async Contexts**: Using `async with` (`src/python_mastery/context_managers/async_ctx.py`)
+4.  **State Management**: Managing global state safely (`src/python_mastery/context_managers/state.py`)
+5.  **Reusability**: Single-use vs Reentrant context managers (`src/python_mastery/context_managers/reentrant.py`)
 
 ### 1. Two Approaches to Creating Context Managers
 
@@ -101,19 +101,22 @@ Run the individual modules to see the concepts in action:
 
 ```bash
 # 1. Basic Timer (Class vs Decorator)
-python context_managers/timer.py
+python -m python_mastery.context_managers.timer
 
 # 2. Standard Library Utilities
-python context_managers/utilities.py
+python -m python_mastery.context_managers.utilities
 
 # 3. Async Context Managers
-python context_managers/async_ctx.py
+python -m python_mastery.context_managers.async_ctx
 
 # 4. State Management (Environment Variables)
-python context_managers/state.py
+python -m python_mastery.context_managers.state
 
 # 5. Reusability Demonstration
-python context_managers/reentrant.py
+python -m python_mastery.context_managers.reentrant
+
+# Or use the interactive CLI
+python -m python_mastery
 ```
 
 ## Best Practices

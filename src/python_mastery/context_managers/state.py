@@ -9,6 +9,7 @@ Demonstrates using context managers to temporarily modify global state
 import os
 from contextlib import contextmanager
 
+
 @contextmanager
 def env_var(key, value):
     """
@@ -30,6 +31,7 @@ def env_var(key, value):
             os.environ[key] = old_value
             print(f"Restored ENV['{key}'] to '{old_value}'")
 
+
 def demonstrate_state_change():
     print(f"Current API_KEY: {os.environ.get('API_KEY')}")
 
@@ -42,6 +44,6 @@ def demonstrate_state_change():
 
     print(f"After context: {os.environ.get('API_KEY')}")
 
+
 if __name__ == "__main__":
     demonstrate_state_change()
-

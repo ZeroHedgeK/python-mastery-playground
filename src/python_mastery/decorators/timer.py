@@ -6,9 +6,12 @@ Each line is explained in detail to help understand how decorators work.
 """
 
 import functools
+import logging
 import time
 from collections.abc import Callable
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 
 def timer(func: Callable) -> Callable:
@@ -52,9 +55,11 @@ def timer(func: Callable) -> Callable:
         # Calculate how long the function took to run
         execution_time = end_time - start_time
 
-        # Print the timing information
+        # Log the timing information
         # We use func.__name__ to get the original function's name
-        print(f"Function '{func.__name__}' executed in {execution_time:.12f} seconds")
+        logger.info(
+            "Function '%s' executed in %.6f seconds", func.__name__, execution_time
+        )
 
         # Return the original function's result
         # This is crucial - decorators should be transparent to the caller

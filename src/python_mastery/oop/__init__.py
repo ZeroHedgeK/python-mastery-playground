@@ -10,8 +10,12 @@ It covers:
 - Metaclasses (Class creation hooks)
 """
 
-from .advanced_classes import demonstrate_singleton, demonstrate_slots, demonstrate_properties
-from .inheritance import demonstrate_mro, demonstrate_mixins
+from .advanced_classes import (
+    demonstrate_properties,
+    demonstrate_singleton,
+    demonstrate_slots,
+)
+from .inheritance import demonstrate_mixins, demonstrate_mro
 from .magic_methods import demonstrate_magic_methods
 from .metaclasses import demonstrate_metaclass
 

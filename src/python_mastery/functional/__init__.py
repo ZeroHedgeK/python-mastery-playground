@@ -8,7 +8,11 @@ This module demonstrates functional programming concepts in Python:
 3. Recursion & Higher-Order Functions
 """
 
-from .functional_tools import demonstrate_partial, demonstrate_itertools, demonstrate_reduce
+from .functional_tools import (
+    demonstrate_itertools,
+    demonstrate_partial,
+    demonstrate_reduce,
+)
 from .immutability import demonstrate_frozen_dataclass, pure_function
 
 __all__ = [
@@ -18,4 +22,3 @@ __all__ = [
     "demonstrate_frozen_dataclass",
     "pure_function",
 ]
-

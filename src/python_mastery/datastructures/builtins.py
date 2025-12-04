@@ -8,6 +8,7 @@ This module covers advanced slicing, comprehensions, and generators.
 
 import sys
 
+
 def demonstrate_slicing():
     """
     Advanced Slicing techniques.
@@ -94,4 +95,3 @@ if __name__ == "__main__":
     demonstrate_slicing()
     demonstrate_comprehensions()
     demonstrate_generators()
-

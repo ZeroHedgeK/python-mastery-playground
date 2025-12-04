@@ -10,8 +10,16 @@ It covers:
 - collections module tools (Counter, defaultdict, etc.)
 """
 
-from .builtins import demonstrate_slicing, demonstrate_comprehensions, demonstrate_generators
-from .collections_demo import demonstrate_counter, demonstrate_defaultdict, demonstrate_deque
+from .builtins import (
+    demonstrate_comprehensions,
+    demonstrate_generators,
+    demonstrate_slicing,
+)
+from .collections_demo import (
+    demonstrate_counter,
+    demonstrate_defaultdict,
+    demonstrate_deque,
+)
 
 __all__ = [
     "demonstrate_slicing",
@@ -21,4 +29,3 @@ __all__ = [
     "demonstrate_defaultdict",
     "demonstrate_deque",
 ]
-

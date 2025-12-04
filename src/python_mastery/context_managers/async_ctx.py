@@ -9,11 +9,13 @@ These are fundamental for asyncio, database connections, and network sessions.
 import asyncio
 import time
 
+
 class AsyncTimer:
     """
     An async version of the Timer.
     Uses __aenter__ and __aexit__.
     """
+
     def __init__(self, name):
         self.name = name
         self.start = None
@@ -40,6 +42,6 @@ async def main():
 
     print("Done.")
 
+
 if __name__ == "__main__":
     asyncio.run(main())
-

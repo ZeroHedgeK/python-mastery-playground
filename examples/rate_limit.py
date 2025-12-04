@@ -150,7 +150,9 @@ print("All @rate_limit examples completed!")
 print("=" * 70)
 print()
 print("Key observations:")
-print("  • The @rate_limit decorator prevents functions from being called too frequently")
+print(
+    "  • The @rate_limit decorator prevents functions from being called too frequently"
+)
 print("  • You can configure the number of calls allowed per time period")
 print("  • It's perfect for API rate limiting and preventing server overload")
 print("  • The limit automatically resets after the specified time period")

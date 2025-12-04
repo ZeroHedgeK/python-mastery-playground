@@ -6,7 +6,8 @@ The 'collections' module implements specialized container datatypes providing
 alternatives to Python's general purpose built-in containers, dict, list, set, and tuple.
 """
 
-from collections import Counter, defaultdict, deque, namedtuple, ChainMap
+from collections import ChainMap, Counter, defaultdict, deque, namedtuple
+
 
 def demonstrate_counter():
     """
@@ -15,7 +16,7 @@ def demonstrate_counter():
     print("\n=== collections.Counter ===")
 
     # 1. Basic counting
-    words = ['apple', 'banana', 'apple', 'cherry', 'apple', 'banana']
+    words = ["apple", "banana", "apple", "cherry", "apple", "banana"]
     count = Counter(words)
     print(f"Counts: {count}")
 
@@ -37,7 +38,7 @@ def demonstrate_defaultdict():
 
     # 1. Grouping items (List factory)
     # Traditional way requires checking if key exists
-    pairs = [('fruit', 'apple'), ('fruit', 'banana'), ('veg', 'carrot')]
+    pairs = [("fruit", "apple"), ("fruit", "banana"), ("veg", "carrot")]
 
     grouped = defaultdict(list)
     for category, item in pairs:
@@ -60,14 +61,14 @@ def demonstrate_deque():
     """
     print("\n=== collections.deque ===")
 
-    d = deque(['middle'])
+    d = deque(["middle"])
 
     # 1. Efficient append/pop on both ends
-    d.append('right')
-    d.appendleft('left')
+    d.append("right")
+    d.appendleft("left")
     print(f"Deque: {d}")
 
-    d.pop()      # remove right
+    d.pop()  # remove right
     d.popleft()  # remove left
     print(f"After pops: {d}")
 
@@ -86,7 +87,7 @@ def demonstrate_namedtuple():
     """
     print("\n=== collections.namedtuple ===")
 
-    Point = namedtuple('Point', ['x', 'y'])
+    Point = namedtuple("Point", ["x", "y"])
     p = Point(10, 20)
 
     print(f"Point: {p}")
@@ -100,8 +101,8 @@ def demonstrate_chainmap():
     """
     print("\n=== collections.ChainMap ===")
 
-    defaults = {'theme': 'dark', 'show_index': True}
-    user_config = {'show_index': False}
+    defaults = {"theme": "dark", "show_index": True}
+    user_config = {"show_index": False}
 
     # Search order: user_config -> defaults
     config = ChainMap(user_config, defaults)
@@ -116,4 +117,3 @@ if __name__ == "__main__":
     demonstrate_deque()
     demonstrate_namedtuple()
     demonstrate_chainmap()
-

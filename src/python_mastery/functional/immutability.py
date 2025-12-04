@@ -10,6 +10,7 @@ Functional programming relies on:
 from dataclasses import dataclass
 from typing import List
 
+
 # 1. Immutability with Dataclasses
 @dataclass(frozen=True)
 class Point3D:
@@ -17,12 +18,13 @@ class Point3D:
     y: float
     z: float
 
-    def move(self, dx, dy, dz) -> 'Point3D':
+    def move(self, dx, dy, dz) -> "Point3D":
         """
         Since we can't modify self, we return a NEW instance.
         This is the functional way.
         """
         return Point3D(self.x + dx, self.y + dy, self.z + dz)
+
 
 def demonstrate_frozen_dataclass():
     print("\n=== Immutable Data Structures ===")
@@ -42,10 +44,12 @@ def demonstrate_frozen_dataclass():
 
 # 2. Pure Functions vs Impure Functions
 
+
 def impure_function(data: List[int]):
     """Modifies the input list (Side Effect). BAD for FP."""
     data.append(999)
     return data
+
 
 def pure_function(data: List[int], new_item: int) -> List[int]:
     """
@@ -53,6 +57,7 @@ def pure_function(data: List[int], new_item: int) -> List[int]:
     Does NOT modify the original input.
     """
     return data + [new_item]
+
 
 def demonstrate_purity():
     print("\n=== Pure vs Impure Functions ===")
@@ -68,7 +73,7 @@ def demonstrate_purity():
     impure_function(original)
     print(f"Original after impure: {original} (CHANGED!)")
 
+
 if __name__ == "__main__":
     demonstrate_frozen_dataclass()
     demonstrate_purity()
-

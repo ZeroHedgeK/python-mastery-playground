@@ -61,6 +61,7 @@ def retry(
         """
 
         if asyncio.iscoroutinefunction(func):
+
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Async wrapper with retry logic."""
@@ -90,9 +91,7 @@ def retry(
                                 func.__name__,
                                 max_attempts,
                             )
-                            raise RetryExhausted(
-                                func.__name__, max_attempts, e
-                            ) from e
+                            raise RetryExhausted(func.__name__, max_attempts, e) from e
 
                         logger.warning(
                             "Function '%s' failed on attempt %d: %s",
@@ -110,6 +109,7 @@ def retry(
 
             return async_wrapper
         else:
+
             @functools.wraps(func)
             def wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Sync wrapper with retry logic."""
@@ -139,9 +139,7 @@ def retry(
                                 func.__name__,
                                 max_attempts,
                             )
-                            raise RetryExhausted(
-                                func.__name__, max_attempts, e
-                            ) from e
+                            raise RetryExhausted(func.__name__, max_attempts, e) from e
 
                         logger.warning(
                             "Function '%s' failed on attempt %d: %s",

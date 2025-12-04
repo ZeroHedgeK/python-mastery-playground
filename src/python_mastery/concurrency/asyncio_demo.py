@@ -9,8 +9,10 @@ Very efficient for high-concurrency I/O.
 
 import asyncio
 import time
+from typing import Any
 
-async def fetch_data(source_id):
+
+async def fetch_data(source_id: int) -> dict[str, Any]:
     """A coroutine that simulates fetching data asynchronously."""
     print(f"Task-{source_id}: Sending request...")
     # await passes control back to the loop while waiting
@@ -18,7 +20,9 @@ async def fetch_data(source_id):
     print(f"Task-{source_id}: Data received!")
     return {"id": source_id, "data": "chunk"}
 
-async def main():
+
+async def main() -> None:
+    """Main async entry point demonstrating concurrent task execution."""
     print("\n=== AsyncIO (Event Loop) ===")
     start_time = time.perf_counter()
 
@@ -36,10 +40,11 @@ async def main():
     # Note: 10 * 0.5s = 5.0s sequential.
     # AsyncIO does it in ~0.5s total because they wait in parallel.
 
-def demonstrate_asyncio():
-    # Entry point for running the async main function
+
+def demonstrate_asyncio() -> None:
+    """Entry point for running the async main function."""
     asyncio.run(main())
+
 
 if __name__ == "__main__":
     demonstrate_asyncio()
-

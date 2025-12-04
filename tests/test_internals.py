@@ -2,11 +2,13 @@
 Tests for Internals Module
 """
 
-import pytest
-import sys
 import gc
+import sys
+
+import pytest
 from internals.bytecode_inspector import example_function
 from internals.memory_management import demonstrate_garbage_collection
+
 
 def test_bytecode_function_output():
     """
@@ -14,10 +16,12 @@ def test_bytecode_function_output():
     """
     assert example_function(10, 20) == 60
 
+
 def test_gc_collection():
     """
     Verify that we can trigger GC manually.
     """
+
     # Create some garbage
     class Trash:
         pass
@@ -34,4 +38,3 @@ def test_gc_collection():
     # but it should return an integer >= 0
     assert isinstance(collected, int)
     assert collected >= 0
-

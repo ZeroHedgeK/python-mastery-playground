@@ -6,11 +6,12 @@ Python is dynamically typed, but Type Hints allow for static analysis tools like
 to catch bugs before runtime.
 """
 
-from typing import TypeVar, Protocol, Sequence, TypedDict, List
+from typing import List, Protocol, Sequence, TypedDict, TypeVar
 
 # 1. Generics
 # TypeVar allows us to define a variable that represents "any type"
-T = TypeVar('T')
+T = TypeVar("T")
+
 
 def process_items(items: Sequence[T]) -> List[T]:
     """
@@ -24,15 +25,16 @@ def process_items(items: Sequence[T]) -> List[T]:
 # A Protocol defines what methods an object MUST have.
 # Classes don't need to explicitly inherit from it (like interfaces in Go).
 
-class Repository(Protocol):
-    def save(self, data: dict) -> bool:
-        ...
 
-    def get(self, id: int) -> dict:
-        ...
+class Repository(Protocol):
+    def save(self, data: dict) -> bool: ...
+
+    def get(self, id: int) -> dict: ...
+
 
 class SQLRepository:
     """Satisfies Repository protocol implicitly"""
+
     def save(self, data: dict) -> bool:
         print("Saving to SQL...")
         return True
@@ -40,14 +42,17 @@ class SQLRepository:
     def get(self, id: int) -> dict:
         return {"id": id, "source": "SQL"}
 
+
 class FileRepository:
     """Also satisfies Repository protocol"""
+
     def save(self, data: dict) -> bool:
         print("Saving to File...")
         return True
 
     def get(self, id: int) -> dict:
         return {"id": id, "source": "File"}
+
 
 def save_user(repo: Repository, user_data: dict):
     """
@@ -65,8 +70,10 @@ class User(TypedDict):
     email: str
     is_active: bool
 
+
 def create_user(u: User) -> None:
     print(f"Created user: {u['username']}")
+
 
 # Usage demonstration
 if __name__ == "__main__":
@@ -83,7 +90,6 @@ if __name__ == "__main__":
         "id": 1,
         "username": "alice",
         "email": "alice@example.com",
-        "is_active": True
+        "is_active": True,
     }
     create_user(alice)
-

@@ -11,10 +11,12 @@ enter/exit multiple times.
 
 from contextlib import contextmanager
 
+
 class SingleUse:
     """
     Typical context manager. Can only be used once.
     """
+
     def __init__(self):
         self.used = False
 
@@ -34,6 +36,7 @@ class Reusable:
     Reusable context manager. Can be used multiple times.
     Useful for connection pools, thread locks, etc.
     """
+
     def __init__(self):
         self.count = 0
 
@@ -71,6 +74,6 @@ def demonstrate_reentrancy():
 
     print("Success!")
 
+
 if __name__ == "__main__":
     demonstrate_reentrancy()
-

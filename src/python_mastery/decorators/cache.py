@@ -68,7 +68,9 @@ def cache(ttl: float = 300.0, maxsize: int | None = None):
         def _make_key(args: tuple, kwargs: dict) -> tuple:
             """Create a hashable cache key from function arguments."""
             hashable_args = tuple(_make_hashable(arg) for arg in args)
-            hashable_kwargs = tuple(sorted((k, _make_hashable(v)) for k, v in kwargs.items()))
+            hashable_kwargs = tuple(
+                sorted((k, _make_hashable(v)) for k, v in kwargs.items())
+            )
             return (hashable_args, hashable_kwargs)
 
         def _get_cached(key: tuple, current_time: float) -> tuple[bool, Any]:
@@ -101,6 +103,7 @@ def cache(ttl: float = 300.0, maxsize: int | None = None):
                     cache_store.popitem(last=False)
 
         if asyncio.iscoroutinefunction(func):
+
             @functools.wraps(func)
             async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Async wrapper with thread-safe caching."""
@@ -126,6 +129,7 @@ def cache(ttl: float = 300.0, maxsize: int | None = None):
 
             return async_wrapper
         else:
+
             @functools.wraps(func)
             def wrapper(*args: Any, **kwargs: Any) -> Any:
                 """Sync wrapper with thread-safe caching."""

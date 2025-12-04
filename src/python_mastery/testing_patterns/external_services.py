@@ -9,8 +9,9 @@ typically want to mock during testing to avoid:
 3. Charging real credit cards
 """
 
-import time
 import random
+import time
+
 
 class PaymentGateway:
     def charge(self, amount: float, currency: str) -> bool:
@@ -25,6 +26,7 @@ class PaymentGateway:
             raise ConnectionError("Bank API unavailable")
 
         return True
+
 
 class UserManager:
     def __init__(self, payment_gateway: PaymentGateway):
@@ -43,4 +45,3 @@ class UserManager:
                 return "Payment declined"
         except ConnectionError:
             return "Payment failed - try again later"
-

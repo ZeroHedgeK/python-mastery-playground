@@ -8,12 +8,14 @@ This module demonstrates professional testing techniques:
 3. Parametrization: Running one test with multiple inputs
 """
 
+from unittest.mock import MagicMock, Mock
+
 import pytest
-from unittest.mock import Mock, MagicMock
-from testing_patterns.external_services import UserManager, PaymentGateway
+from testing_patterns.external_services import PaymentGateway, UserManager
 from testing_patterns.type_safety import process_items
 
 # === 1. FIXTURES ===
+
 
 @pytest.fixture
 def mock_gateway():
@@ -23,6 +25,7 @@ def mock_gateway():
     """
     # MagicMock creates an object that pretends to be anything you want
     return MagicMock(spec=PaymentGateway)
+
 
 @pytest.fixture
 def user_manager(mock_gateway):
@@ -34,6 +37,7 @@ def user_manager(mock_gateway):
 
 
 # === 2. MOCKING ===
+
 
 def test_upgrade_success(user_manager, mock_gateway):
     """Test that success path works without calling real API."""
@@ -65,15 +69,18 @@ def test_upgrade_api_error(user_manager, mock_gateway):
 
 # === 3. PARAMETRIZATION ===
 
-@pytest.mark.parametrize("test_input,expected", [
-    ([1, 2, 3], [3, 2, 1]),
-    (["a", "b"], ["b", "a"]),
-    ([], []),
-])
+
+@pytest.mark.parametrize(
+    "test_input,expected",
+    [
+        ([1, 2, 3], [3, 2, 1]),
+        (["a", "b"], ["b", "a"]),
+        ([], []),
+    ],
+)
 def test_process_items_parametrized(test_input, expected):
     """
     Runs 3 times with different inputs.
     Eliminates copy-pasting tests.
     """
     assert process_items(test_input) == expected
-

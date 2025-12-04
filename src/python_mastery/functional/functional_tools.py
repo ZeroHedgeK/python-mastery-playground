@@ -6,12 +6,14 @@ Python provides powerful tools in 'functools' and 'itertools' to support
 functional programming styles.
 """
 
-from functools import partial, reduce
 import itertools
 import operator
+from functools import partial, reduce
+
 
 def power(base, exponent):
-    return base ** exponent
+    return base**exponent
+
 
 def demonstrate_partial():
     """
@@ -56,7 +58,7 @@ def demonstrate_itertools():
     # Cycles through ABCD indefinitely (we break after 10)
     counter = 0
     result = []
-    for char in itertools.cycle('ABCD'):
+    for char in itertools.cycle("ABCD"):
         result.append(char)
         counter += 1
         if counter >= 10:
@@ -65,8 +67,8 @@ def demonstrate_itertools():
 
     # 2. Cartesian Product
     # Equivalent to nested loops
-    colors = ['red', 'blue']
-    sizes = ['S', 'M']
+    colors = ["red", "blue"]
+    sizes = ["S", "M"]
     combinations = list(itertools.product(colors, sizes))
     print(f"Product (Colors x Sizes): {combinations}")
 
@@ -76,8 +78,8 @@ def demonstrate_itertools():
     chained = list(itertools.chain(list1, list2))
     print(f"Chained lists: {chained}")
 
+
 if __name__ == "__main__":
     demonstrate_partial()
     demonstrate_reduce()
     demonstrate_itertools()
-

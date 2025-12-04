@@ -150,6 +150,26 @@ MODULES: dict[str, dict[str, Any]] = {
             ),
         ],
     },
+    "8": {
+        "title": "Control Flow",
+        "demos": [
+            (
+                "Pattern Matching",
+                "python_mastery.control_flow.advanced_flow",
+                ["demonstrate_pattern_matching"],
+            ),
+            (
+                "Generator Pipelines",
+                "python_mastery.control_flow.advanced_flow",
+                ["demonstrate_pipeline"],
+            ),
+            (
+                "For/Else Primes",
+                "python_mastery.control_flow.advanced_flow",
+                ["demonstrate_for_else"],
+            ),
+        ],
+    },
 }
 
 

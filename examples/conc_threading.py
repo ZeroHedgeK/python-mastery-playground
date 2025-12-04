@@ -11,9 +11,10 @@ from __future__ import annotations
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
-from python_mastery.concurrency import (
+
+from python_mastery.concurrency import (  # noqa: F401
     threading_demo as _library_reference,
-)  # noqa: F401
+)
 
 
 def io_task(duration: float, label: str) -> str:

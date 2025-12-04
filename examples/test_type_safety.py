@@ -19,10 +19,9 @@ from typing import (
 
 import pytest
 
-from python_mastery.testing_patterns import (
+from python_mastery.testing_patterns import (  # noqa: F401
     type_safety as _library_reference,
-)  # noqa: F401
-
+)
 
 T = TypeVar("T")
 Bounded = TypeVar("Bounded", bound=int)

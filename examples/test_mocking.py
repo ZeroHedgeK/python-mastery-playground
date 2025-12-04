@@ -10,10 +10,9 @@ from unittest.mock import MagicMock, Mock, call, patch
 
 import pytest
 
-from python_mastery.testing_patterns import (
+from python_mastery.testing_patterns import (  # noqa: F401
     external_services as _library_reference,
-)  # noqa: F401
-
+)
 
 # === DEMONSTRATIONS ===
 

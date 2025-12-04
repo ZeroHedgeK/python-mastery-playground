@@ -11,9 +11,9 @@ import sys
 import tracemalloc
 from dataclasses import dataclass
 
-from python_mastery.internals import (
+from python_mastery.internals import (  # noqa: F401
     memory_management as _library_reference,
-)  # noqa: F401
+)
 
 
 def sizeof(label: str, obj) -> None:

@@ -11,9 +11,10 @@ from __future__ import annotations
 import asyncio
 import random
 import time
-from python_mastery.concurrency import (
+
+from python_mastery.concurrency import (  # noqa: F401
     asyncio_patterns as _library_reference,
-)  # noqa: F401
+)
 
 
 async def example_wait_for_timeout() -> None:

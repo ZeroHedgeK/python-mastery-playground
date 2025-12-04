@@ -9,10 +9,10 @@ from __future__ import annotations
 
 import sys
 from dataclasses import dataclass
-from python_mastery.control_flow import (
-    advanced_flow as _library_reference,
-)  # noqa: F401
 
+from python_mastery.control_flow import (  # noqa: F401
+    advanced_flow as _library_reference,
+)
 
 if sys.version_info < (3, 10):
     raise SystemExit("Python 3.10+ required for match/case examples")

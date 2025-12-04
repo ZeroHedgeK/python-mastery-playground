@@ -9,9 +9,9 @@ from __future__ import annotations
 import dis
 import sys
 
-from python_mastery.internals import (
+from python_mastery.internals import (  # noqa: F401
     bytecode_inspector as _library_reference,
-)  # noqa: F401
+)
 
 
 def simple_add(x: int, y: int) -> int:

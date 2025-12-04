@@ -9,9 +9,9 @@ from __future__ import annotations
 import gc
 import weakref
 
-from python_mastery.internals import (
+from python_mastery.internals import (  # noqa: F401
     memory_management as _library_reference,
-)  # noqa: F401
+)
 
 
 class Node:

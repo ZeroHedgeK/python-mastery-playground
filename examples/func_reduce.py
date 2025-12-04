@@ -9,9 +9,9 @@ import functools
 import operator
 from typing import Iterable
 
-from python_mastery.functional import (
+from python_mastery.functional import (  # noqa: F401
     functional_tools as _library_reference,
-)  # noqa: F401
+)
 
 
 def example_basic_reduce() -> None:

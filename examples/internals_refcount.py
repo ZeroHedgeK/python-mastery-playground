@@ -9,9 +9,9 @@ from __future__ import annotations
 import sys
 import weakref
 
-from python_mastery.internals import (
+from python_mastery.internals import (  # noqa: F401
     memory_management as _library_reference,
-)  # noqa: F401
+)
 
 
 def example_basic_refcount() -> None:

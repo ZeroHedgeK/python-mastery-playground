@@ -6,9 +6,10 @@ and composition. Demonstrates memory-friendly pipelines vs eager lists.
 from __future__ import annotations
 
 import itertools
-from python_mastery.functional import (
+
+from python_mastery.functional import (  # noqa: F401
     functional_tools as _library_reference,
-)  # noqa: F401
+)
 
 
 def example_map_filter_chain() -> None:

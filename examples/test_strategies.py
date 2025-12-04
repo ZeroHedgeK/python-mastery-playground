@@ -11,13 +11,11 @@ import warnings
 import pytest
 from _pytest.warning_types import PytestUnknownMarkWarning
 
-
 warnings.filterwarnings("ignore", category=PytestUnknownMarkWarning)
 
-from python_mastery.testing_patterns import (
+from python_mastery.testing_patterns import (  # noqa: F401
     external_services as _library_reference,
-)  # noqa: F401
-
+)
 
 # === DEMONSTRATIONS ===
 

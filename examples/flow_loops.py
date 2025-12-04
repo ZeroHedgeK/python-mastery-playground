@@ -6,9 +6,9 @@ clean exits from nested loops. Shows search/validation idioms and clarifies when
 
 from __future__ import annotations
 
-from python_mastery.control_flow import (
+from python_mastery.control_flow import (  # noqa: F401
     advanced_flow as _library_reference,
-)  # noqa: F401
+)
 
 
 def example_for_else_search() -> None:

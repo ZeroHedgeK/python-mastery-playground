@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import time
+
 from python_mastery.concurrency import asyncio_demo as _library_reference  # noqa: F401
 
 

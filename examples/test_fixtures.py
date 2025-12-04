@@ -11,10 +11,9 @@ from pathlib import Path
 
 import pytest
 
-from python_mastery.testing_patterns import (
+from python_mastery.testing_patterns import (  # noqa: F401
     type_safety as _library_reference,
-)  # noqa: F401
-
+)
 
 # === DEMONSTRATIONS ===
 

@@ -10,9 +10,10 @@ from __future__ import annotations
 import multiprocessing as mp
 import time
 from concurrent.futures import ProcessPoolExecutor
-from python_mastery.concurrency import (
+
+from python_mastery.concurrency import (  # noqa: F401
     multiprocessing_demo as _library_reference,
-)  # noqa: F401
+)
 
 
 def cpu_heavy(n: int) -> int:

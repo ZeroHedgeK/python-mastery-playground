@@ -4,10 +4,6 @@ Tests for Datastructures Module
 
 from collections import Counter, deque
 
-import pytest
-from datastructures.builtins import demonstrate_comprehensions
-from datastructures.collections_demo import demonstrate_counter
-
 
 def test_generator_fibonacci():
     """Test the generator function manually."""

@@ -6,14 +6,15 @@ Python is dynamically typed, but Type Hints allow for static analysis tools like
 to catch bugs before runtime.
 """
 
-from typing import List, Protocol, Sequence, TypedDict, TypeVar
+from collections.abc import Sequence
+from typing import Protocol, TypedDict, TypeVar
 
 # 1. Generics
 # TypeVar allows us to define a variable that represents "any type"
 T = TypeVar("T")
 
 
-def process_items(items: Sequence[T]) -> List[T]:
+def process_items(items: Sequence[T]) -> list[T]:
     """
     A generic function that works with any sequence (list, tuple)
     and returns a list of the same type.

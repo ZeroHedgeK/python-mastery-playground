@@ -3,11 +3,8 @@ Tests for Internals Module
 """
 
 import gc
-import sys
 
-import pytest
-from internals.bytecode_inspector import example_function
-from internals.memory_management import demonstrate_garbage_collection
+from python_mastery.internals.bytecode_inspector import example_function
 
 
 def test_bytecode_function_output():

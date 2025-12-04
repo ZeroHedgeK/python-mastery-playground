@@ -137,3 +137,15 @@ cython_debug/
 # Conda
 conda-env
 .conda-env
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+Thumbs.db
+
+# GitHub specific
+.github/copilot-diff.txt

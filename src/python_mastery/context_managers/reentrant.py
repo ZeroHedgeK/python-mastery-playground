@@ -9,7 +9,6 @@ you cannot enter them again. Reentrant context managers allow you to
 enter/exit multiple times.
 """
 
-from contextlib import contextmanager
 
 
 class SingleUse:

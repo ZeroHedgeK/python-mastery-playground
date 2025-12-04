@@ -2,12 +2,12 @@
 Tests for Concurrency Module
 """
 
-import asyncio
 
 import pytest
-from concurrency.asyncio_demo import fetch_data
-from concurrency.multiprocessing_demo import heavy_computation
-from concurrency.threading_demo import download_file
+
+from python_mastery.concurrency.asyncio_demo import fetch_data
+from python_mastery.concurrency.multiprocessing_demo import heavy_computation
+from python_mastery.concurrency.threading_demo import download_file
 
 
 # 1. Test Threading Logic (Sync function used by threads)

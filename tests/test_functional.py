@@ -5,7 +5,8 @@ Tests for Functional Module
 from functools import partial, reduce
 
 import pytest
-from functional.immutability import Point3D, pure_function
+
+from python_mastery.functional.immutability import Point3D, pure_function
 
 
 def test_pure_function():

@@ -8,7 +8,6 @@ Mastering these prevents you from reinventing the wheel.
 
 import os
 from contextlib import ExitStack, closing, nullcontext, suppress
-from urllib.request import urlopen
 
 
 def demonstrate_suppress():

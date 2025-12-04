@@ -3,8 +3,8 @@ Tests for OOP Module
 """
 
 import pytest
-from oop.advanced_classes import demonstrate_properties, demonstrate_singleton
-from oop.magic_methods import CustomList
+from python_mastery.oop.advanced_classes import demonstrate_properties, demonstrate_singleton
+from python_mastery.oop.magic_methods import CustomList
 
 
 def test_singleton_pattern():
@@ -55,7 +55,7 @@ def test_metaclass_enforcement():
             return super().__new__(mcs, name, bases, attrs)
 
     # Real test of logic from our module
-    from oop.metaclasses import demonstrate_metaclass
+    from python_mastery.oop.metaclasses import demonstrate_metaclass
 
     # We can't easily import the inner class from the demo function,
     # so we verify the demo runs without error (it catches the error internally)

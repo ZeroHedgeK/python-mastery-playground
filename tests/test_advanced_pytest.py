@@ -11,8 +11,8 @@ This module demonstrates professional testing techniques:
 from unittest.mock import MagicMock, Mock
 
 import pytest
-from testing_patterns.external_services import PaymentGateway, UserManager
-from testing_patterns.type_safety import process_items
+from python_mastery.testing_patterns.external_services import PaymentGateway, UserManager
+from python_mastery.testing_patterns.type_safety import process_items
 
 # === 1. FIXTURES ===
 

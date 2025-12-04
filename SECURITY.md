@@ -25,8 +25,9 @@ Instead, please report them via one of the following methods:
    - Fill out the form with details about the vulnerability
 
 2. **Email**
-   - Send an email to: [INSERT SECURITY EMAIL]
+   - Send an email to: security@python-mastery-playground.example
    - Include "SECURITY" in the subject line
+   - Note: Replace with your actual security contact email
 
 ### What to Include in Your Report
 
@@ -139,7 +140,7 @@ For security-related questions or concerns:
 
 - **Security Issues**: Use GitHub Security Advisories
 - **General Questions**: Open a GitHub Discussion
-- **Security Email**: [INSERT SECURITY EMAIL]
+- **Security Email**: security@python-mastery-playground.example (replace with actual email)
 
 ## Additional Resources
 

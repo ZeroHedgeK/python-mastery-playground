@@ -34,7 +34,9 @@ def example_nested_vs_product() -> None:
     nested = [(c, s) for c in colors for s in sizes if s != "M"]
     print(f"  nested comprehension (skip M): {nested}")
 
-    product_version = [pair for pair in itertools.product(colors, sizes) if pair[1] != "M"]
+    product_version = [
+        pair for pair in itertools.product(colors, sizes) if pair[1] != "M"
+    ]
     print(f"  product equivalent: {product_version}")
 
 

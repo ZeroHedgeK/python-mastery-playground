@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import sys
 from dataclasses import dataclass
-from python_mastery.control_flow import advanced_flow as _library_reference  # noqa: F401
+from python_mastery.control_flow import (
+    advanced_flow as _library_reference,
+)  # noqa: F401
 
 
 if sys.version_info < (3, 10):

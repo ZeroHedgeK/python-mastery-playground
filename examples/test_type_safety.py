@@ -6,11 +6,22 @@ and comments on mypy catching issues before runtime.
 
 from __future__ import annotations
 
-from typing import Annotated, Final, Generic, Literal, Protocol, TypedDict, TypeVar, runtime_checkable
+from typing import (
+    Annotated,
+    Final,
+    Generic,
+    Literal,
+    Protocol,
+    TypedDict,
+    TypeVar,
+    runtime_checkable,
+)
 
 import pytest
 
-from python_mastery.testing_patterns import type_safety as _library_reference  # noqa: F401
+from python_mastery.testing_patterns import (
+    type_safety as _library_reference,
+)  # noqa: F401
 
 
 T = TypeVar("T")
@@ -21,8 +32,7 @@ Bounded = TypeVar("Bounded", bound=int)
 class Processor(Protocol):
     name: str
 
-    def process(self, data: str) -> int:
-        ...
+    def process(self, data: str) -> int: ...
 
 
 class UpperProcessor:

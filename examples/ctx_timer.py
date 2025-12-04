@@ -86,7 +86,9 @@ def run_all() -> None:
     example_exception_handling()
     example_pipeline_use_case()
 
-    print("\nAll timer context examples done. Notice behavior differences and timing access.")
+    print(
+        "\nAll timer context examples done. Notice behavior differences and timing access."
+    )
 
 
 if __name__ == "__main__":

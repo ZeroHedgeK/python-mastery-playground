@@ -9,7 +9,9 @@ from __future__ import annotations
 import dis
 import sys
 
-from python_mastery.internals import bytecode_inspector as _library_reference  # noqa: F401
+from python_mastery.internals import (
+    bytecode_inspector as _library_reference,
+)  # noqa: F401
 
 
 def simple_add(x: int, y: int) -> int:
@@ -63,7 +65,9 @@ def example_inplace_vs_binary() -> None:
     dis.dis(add_then_assign)
     print("  inplace_add bytecode (INPLACE_ADD):")
     dis.dis(inplace_add)
-    print("  INPLACE_ADD may reuse objects (e.g., lists) but ints are immutable so CPython makes a new int anyway.")
+    print(
+        "  INPLACE_ADD may reuse objects (e.g., lists) but ints are immutable so CPython makes a new int anyway."
+    )
 
 
 def example_loop_vs_comp_vs_map() -> None:
@@ -72,7 +76,9 @@ def example_loop_vs_comp_vs_map() -> None:
     inspect_function(loop_sum, items)
     inspect_function(list_comp, items)
     inspect_function(map_sum, items)
-    print("  Comprehensions inline BUILD_LIST+LIST_APPEND; map uses CALL_FUNCTION and iterator consumption.")
+    print(
+        "  Comprehensions inline BUILD_LIST+LIST_APPEND; map uses CALL_FUNCTION and iterator consumption."
+    )
 
 
 def example_constant_folding() -> None:

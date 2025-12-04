@@ -62,8 +62,10 @@ def example_validation_metaclass() -> None:
             print("saving...")
 
     try:
+
         class BrokenModel(metaclass=RequiresSave):
             pass
+
     except TypeError as exc:
         print("  validation caught:", exc)
 
@@ -76,6 +78,7 @@ def example_auto_methods() -> None:
     class AutoStr(type):
         def __new__(mcs, name, bases, attrs):
             if "__str__" not in attrs:
+
                 def __str__(self):  # type: ignore[no-untyped-def]
                     return f"<auto {name} {self.__dict__}>"
 
@@ -104,7 +107,9 @@ def example_when_not_to_use_metaclass() -> None:
         pass
 
     print("  Decorator alternative labels:", Decorated.labels)
-    print("  Metaclasses are heavier; use them when you truly need class-creation control.")
+    print(
+        "  Metaclasses are heavier; use them when you truly need class-creation control."
+    )
 
 
 def run_all() -> None:

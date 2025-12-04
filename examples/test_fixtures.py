@@ -11,7 +11,9 @@ from pathlib import Path
 
 import pytest
 
-from python_mastery.testing_patterns import type_safety as _library_reference  # noqa: F401
+from python_mastery.testing_patterns import (
+    type_safety as _library_reference,
+)  # noqa: F401
 
 
 # === DEMONSTRATIONS ===
@@ -161,6 +163,12 @@ if __name__ == "__main__":
     print("=" * 60)
     demo_fixture_scope_prints()
     demo_parametrized_and_factory(Path.cwd())
-    demo_builtin_fixtures(Path.cwd(), pytest.MonkeyPatch(), type("Capsys", (), {"readouterr": lambda self: type('Out', (), {'out': ''})()})())
+    demo_builtin_fixtures(
+        Path.cwd(),
+        pytest.MonkeyPatch(),
+        type(
+            "Capsys", (), {"readouterr": lambda self: type("Out", (), {"out": ""})()}
+        )(),
+    )
     asyncio.run(demo_async_fixture())
     print("\nRun 'pytest examples/test_fixtures.py -v' to execute tests")

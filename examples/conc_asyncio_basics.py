@@ -43,7 +43,11 @@ async def example_create_task() -> None:
 
 async def example_as_completed() -> None:
     print("\nExample 3: as_completed processes fastest first")
-    coros = [simulate_io("fast", 0.1), simulate_io("slow", 0.25), simulate_io("mid", 0.18)]
+    coros = [
+        simulate_io("fast", 0.1),
+        simulate_io("slow", 0.25),
+        simulate_io("mid", 0.18),
+    ]
     for future in asyncio.as_completed(coros):
         result = await future
         print("  got:", result)

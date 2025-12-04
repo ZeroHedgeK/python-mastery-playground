@@ -7,7 +7,9 @@ into memory and includes commented imperative equivalents.
 from __future__ import annotations
 
 import time
-from python_mastery.control_flow import advanced_flow as _library_reference  # noqa: F401
+from python_mastery.control_flow import (
+    advanced_flow as _library_reference,
+)  # noqa: F401
 
 
 def emit(numbers):

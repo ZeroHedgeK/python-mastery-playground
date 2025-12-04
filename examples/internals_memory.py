@@ -11,7 +11,9 @@ import sys
 import tracemalloc
 from dataclasses import dataclass
 
-from python_mastery.internals import memory_management as _library_reference  # noqa: F401
+from python_mastery.internals import (
+    memory_management as _library_reference,
+)  # noqa: F401
 
 
 def sizeof(label: str, obj) -> None:
@@ -37,7 +39,9 @@ def recursive_size(obj, seen=None):
     seen.add(oid)
     size = sys.getsizeof(obj)
     if isinstance(obj, dict):
-        size += sum(recursive_size(k, seen) + recursive_size(v, seen) for k, v in obj.items())
+        size += sum(
+            recursive_size(k, seen) + recursive_size(v, seen) for k, v in obj.items()
+        )
     elif isinstance(obj, (list, tuple, set, frozenset)):
         size += sum(recursive_size(i, seen) for i in obj)
     return size
@@ -104,7 +108,9 @@ def example_tracemalloc_snapshot() -> None:
 
     top_stats = snap2.compare_to(snap1, "filename")[:3]
     for stat in top_stats:
-        print(f"  {stat.traceback[0].filename} +{stat.size_diff} bytes in {stat.count_diff} blocks")
+        print(
+            f"  {stat.traceback[0].filename} +{stat.size_diff} bytes in {stat.count_diff} blocks"
+        )
 
     # Clean up to avoid keeping refs
     del data, more

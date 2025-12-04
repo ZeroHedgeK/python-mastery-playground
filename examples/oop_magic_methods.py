@@ -110,7 +110,9 @@ def example_arithmetic_dunders() -> None:
     total = sum([Money(5), Money(15), Money(20)], start=Money(0))
     print("  sum with start Money(0) ->", total)
 
-    print("  wrong way: forgetting __radd__ makes sum([Money(5)]) fail because 0 + Money is unsupported")
+    print(
+        "  wrong way: forgetting __radd__ makes sum([Money(5)]) fail because 0 + Money is unsupported"
+    )
 
 
 def example_comparisons() -> None:

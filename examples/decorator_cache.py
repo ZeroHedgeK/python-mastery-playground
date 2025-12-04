@@ -74,7 +74,9 @@ def example_complex_keys() -> None:
     tags = ["x", "y"]
     print(f"  first call: {normalize_and_join(payload, tags)}")
     print(f"  second call same args (hit): {normalize_and_join(payload, tags)}")
-    print(f"  different order still a hit: {normalize_and_join({'a': 1, 'b': 2}, ['y', 'x'])}")
+    print(
+        f"  different order still a hit: {normalize_and_join({'a': 1, 'b': 2}, ['y', 'x'])}"
+    )
 
 
 def example_lru_eviction() -> None:

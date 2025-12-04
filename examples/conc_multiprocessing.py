@@ -10,7 +10,9 @@ from __future__ import annotations
 import multiprocessing as mp
 import time
 from concurrent.futures import ProcessPoolExecutor
-from python_mastery.concurrency import multiprocessing_demo as _library_reference  # noqa: F401
+from python_mastery.concurrency import (
+    multiprocessing_demo as _library_reference,
+)  # noqa: F401
 
 
 def cpu_heavy(n: int) -> int:
@@ -46,7 +48,7 @@ def example_cpu_sequential_vs_processes() -> None:
 
 def example_shared_value_and_queue() -> None:
     print("\nExample 2: Shared Value/Array and Queue IPC")
-    counter = mp.Value('i', 0)
+    counter = mp.Value("i", 0)
     results: mp.Queue[int] = mp.Queue()
 
     def worker(n: int, counter: mp.Value, out: mp.Queue[int]) -> None:

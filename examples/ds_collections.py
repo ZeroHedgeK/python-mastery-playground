@@ -16,7 +16,7 @@ def example_counter() -> None:
     print(f"  counts: {counts}")
     print(f"  most_common(2): {counts.most_common(2)}")
 
-    today = Counter({'red': 2, 'yellow': 1})
+    today = Counter({"red": 2, "yellow": 1})
     combined = counts + today
     print(f"  combined via + : {combined}")
     diff = counts - today
@@ -48,7 +48,9 @@ def example_deque_sliding_window() -> None:
     window: deque[int] = deque(maxlen=3)
     for value in data:
         window.append(value)
-        print(f"  appended {value}, window = {list(window)} (rolling sum={sum(window)})")
+        print(
+            f"  appended {value}, window = {list(window)} (rolling sum={sum(window)})"
+        )
 
     # Compare to list pop(0) cost
     print("  deque keeps O(1) pops/appends at both ends; lists shift elements.")

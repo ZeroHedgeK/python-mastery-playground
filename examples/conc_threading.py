@@ -11,7 +11,9 @@ from __future__ import annotations
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
-from python_mastery.concurrency import threading_demo as _library_reference  # noqa: F401
+from python_mastery.concurrency import (
+    threading_demo as _library_reference,
+)  # noqa: F401
 
 
 def io_task(duration: float, label: str) -> str:
@@ -34,7 +36,9 @@ def example_io_sequential_vs_threads() -> None:
 
     start = time.perf_counter()
     with ThreadPoolExecutor(max_workers=3) as ex:
-        thread_results = list(ex.map(io_task, durations, [f"thr-{i}" for i in range(len(durations))]))
+        thread_results = list(
+            ex.map(io_task, durations, [f"thr-{i}" for i in range(len(durations))])
+        )
     thr_elapsed = time.perf_counter() - start
 
     print(f"  sequential: {seq_elapsed:.3f}s → {seq_results}")

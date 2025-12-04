@@ -34,15 +34,15 @@ def example_nested_overrides() -> None:
 
 def example_multiple_keys() -> None:
     print("\nExample 3: Managing multiple keys independently")
-    print(f"  before: USER={os.environ.get('USER')} | REGION={os.environ.get('REGION')}")
+    print(
+        f"  before: USER={os.environ.get('USER')} | REGION={os.environ.get('REGION')}"
+    )
     with env_var("USER", "demo-user"):
         with env_var("REGION", "eu-central"):
             print(
                 f"  inside: USER={os.environ.get('USER')} | REGION={os.environ.get('REGION')}"
             )
-    print(
-        f"  after: USER={os.environ.get('USER')} | REGION={os.environ.get('REGION')}"
-    )
+    print(f"  after: USER={os.environ.get('USER')} | REGION={os.environ.get('REGION')}")
 
 
 def example_exception_handling() -> None:

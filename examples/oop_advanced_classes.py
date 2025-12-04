@@ -30,7 +30,9 @@ def example_singleton_pattern() -> None:
     print("  a.value ->", a.value)
     print("  b.value ->", b.value)
     print("  a is b ->", a is b)
-    print("  wrong way: singletons hide state changes; prefer explicit injection when possible")
+    print(
+        "  wrong way: singletons hide state changes; prefer explicit injection when possible"
+    )
 
 
 def example_properties_with_validation() -> None:
@@ -144,8 +146,10 @@ def example_init_subclass_registry() -> None:
         extension = ".csv"
 
     try:
+
         class BrokenPlugin(PluginBase, requires=("extension",)):
             pass
+
     except TypeError as exc:
         print("  validation caught:", exc)
 

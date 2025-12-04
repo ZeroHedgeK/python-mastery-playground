@@ -10,7 +10,9 @@ import operator
 from functools import partial
 from typing import Callable
 
-from python_mastery.functional import functional_tools as _library_reference  # noqa: F401
+from python_mastery.functional import (
+    functional_tools as _library_reference,
+)  # noqa: F401
 
 
 def compose(*fns: Callable):

@@ -14,7 +14,9 @@ from _pytest.warning_types import PytestUnknownMarkWarning
 
 warnings.filterwarnings("ignore", category=PytestUnknownMarkWarning)
 
-from python_mastery.testing_patterns import external_services as _library_reference  # noqa: F401
+from python_mastery.testing_patterns import (
+    external_services as _library_reference,
+)  # noqa: F401
 
 
 # === DEMONSTRATIONS ===
@@ -51,7 +53,9 @@ def demo_markers_and_selection():
 
 def demo_test_doubles_taxonomy():
     print("Test doubles: dummy, stub, fake, spy, mock")
-    print("  dummy -> placeholder arg; stub -> returns canned data; fake -> lightweight impl; spy -> records calls; mock -> programmable expectations")
+    print(
+        "  dummy -> placeholder arg; stub -> returns canned data; fake -> lightweight impl; spy -> records calls; mock -> programmable expectations"
+    )
 
 
 # === PYTEST TESTS ===

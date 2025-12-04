@@ -90,7 +90,9 @@ def run_all() -> None:
     example_exception_filtering()
     example_exhausted()
 
-    print("\nAll @retry examples completed! Notice how retries are controlled and explicit.")
+    print(
+        "\nAll @retry examples completed! Notice how retries are controlled and explicit."
+    )
 
 
 if __name__ == "__main__":

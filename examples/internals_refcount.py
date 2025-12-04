@@ -9,7 +9,9 @@ from __future__ import annotations
 import sys
 import weakref
 
-from python_mastery.internals import memory_management as _library_reference  # noqa: F401
+from python_mastery.internals import (
+    memory_management as _library_reference,
+)  # noqa: F401
 
 
 def example_basic_refcount() -> None:
@@ -58,6 +60,7 @@ def example_small_int_cache() -> None:
 
 def example_weakref() -> None:
     print("\nExample 5: weakref does not increment refcount")
+
     class Widget:
         pass
 
@@ -71,7 +74,9 @@ def example_weakref() -> None:
 
 
 def example_del_statement() -> None:
-    print("\nExample 6: del lowers refcount but may not free immediately if other refs exist")
+    print(
+        "\nExample 6: del lowers refcount but may not free immediately if other refs exist"
+    )
     obj = [1, 2, 3]
     holder = obj
     print("  before del ->", sys.getrefcount(obj))

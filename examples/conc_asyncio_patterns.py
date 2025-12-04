@@ -11,11 +11,14 @@ from __future__ import annotations
 import asyncio
 import random
 import time
-from python_mastery.concurrency import asyncio_patterns as _library_reference  # noqa: F401
+from python_mastery.concurrency import (
+    asyncio_patterns as _library_reference,
+)  # noqa: F401
 
 
 async def example_wait_for_timeout() -> None:
     print("\nExample 1: asyncio.wait_for with timeout")
+
     async def slow():
         await asyncio.sleep(0.2)
         return "done"
@@ -28,6 +31,7 @@ async def example_wait_for_timeout() -> None:
 
 async def example_shield() -> None:
     print("\nExample 2: asyncio.shield to protect critical section")
+
     async def critical():
         await asyncio.sleep(0.15)
         return "saved"

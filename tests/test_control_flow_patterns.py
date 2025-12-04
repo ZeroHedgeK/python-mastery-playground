@@ -12,7 +12,10 @@ from python_mastery.control_flow.advanced_flow import (
 
 def test_process_command_patterns():
     assert process_command(["load", "file.txt"]) == "Loading file.txt"
-    assert process_command({"action": "connect", "host": "h", "port": 80}) == "Connecting to h:80"
+    assert (
+        process_command({"action": "connect", "host": "h", "port": 80})
+        == "Connecting to h:80"
+    )
     assert process_command(["log", "a", "b"]) == "Log entries: a, b"
     assert process_command("quit") == "Exiting"
     assert process_command(["noop"]) == "Unknown command"
